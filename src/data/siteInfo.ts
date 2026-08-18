@@ -34,7 +34,7 @@ export const services = [
 	},
 	{
 		icon: '✈️',
-		url: '/Icons/Plane + earth.svg',
+		url: '/Icons/travel.svg',
 		title: 'Travel & Relocation',
 		description: 'Stress-free flight bookings, pre-departure orientations, tourism arrangements, and arrival settlement assistance.',
 	},
