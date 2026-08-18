@@ -1,0 +1,138 @@
+/* ========================================
+   FAQ ITEM
+======================================== */
+
+.faq-item {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   QUESTION
+======================================== */
+
+.faq-item__question {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+
+	width: 100%;
+
+	padding: 24px 0;
+
+	border: 0;
+	background: transparent;
+
+	font: inherit;
+	text-align: left;
+
+	color: var(--text, #111111);
+
+	cursor: pointer;
+}
+
+.faq-item__question > span:first-child {
+	flex: 1;
+
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.5;
+}
+
+/* ========================================
+   ICON
+======================================== */
+
+.faq-item__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 34px;
+	height: 34px;
+
+	flex-shrink: 0;
+
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 50%;
+
+	color: var(--text, #111111);
+
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.faq-item__question:hover .faq-item__icon {
+	background: var(--gold, #e5a129);
+	border-color: var(--gold, #e5a129);
+	color: var(--black, #000000);
+}
+
+/* ========================================
+   ANSWER
+======================================== */
+
+.faq-item__answer {
+	padding: 0 58px 24px 0;
+}
+
+.faq-item__answer p {
+	margin: 0;
+
+	font-size: 15px;
+	line-height: 1.75;
+
+	color: var(--muted, #6b6b6b);
+}
+
+/* ========================================
+   OPEN STATE
+======================================== */
+
+.faq-item--open .faq-item__icon {
+	background: var(--gold, #e5a129);
+	border-color: var(--gold, #e5a129);
+	color: var(--black, #000000);
+}
+
+/* ========================================
+   FOCUS
+======================================== */
+
+.faq-item__question:focus-visible {
+	outline: 2px solid var(--gold, #e5a129);
+	outline-offset: 4px;
+	border-radius: 4px;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 640px) {
+	.faq-item__question {
+		padding: 20px 0;
+
+		gap: 16px;
+	}
+
+	.faq-item__question > span:first-child {
+		font-size: 15px;
+	}
+
+	.faq-item__icon {
+		width: 30px;
+		height: 30px;
+	}
+
+	.faq-item__answer {
+		padding: 0 46px 20px 0;
+	}
+
+	.faq-item__answer p {
+		font-size: 14px;
+		line-height: 1.7;
+	}
+}

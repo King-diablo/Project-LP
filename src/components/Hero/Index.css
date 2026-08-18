@@ -1,0 +1,53 @@
+.hero {
+	position: relative;
+
+	min-height: 841px;
+
+	display: flex;
+	align-items: center;
+
+	overflow: hidden;
+
+	border-radius: 0 0 45px 45px;
+
+	background:
+		linear-gradient(90deg, rgba(25, 31, 32, 0.62), rgba(25, 31, 32, 0.08)),
+		url('/Pics/0001.png') center / cover no-repeat;
+}
+
+.hero__content {
+	width: min(calc(100% - 100px), 1140px);
+
+	margin-inline: auto;
+
+	padding-top: 100px;
+}
+
+.hero__text {
+	width: 460px;
+	color: white;
+}
+
+.hero h1 {
+	margin: 0 0 20px;
+
+	font-size: clamp(42px, 4vw, 60px);
+
+	line-height: 0.98;
+	letter-spacing: -0.04em;
+}
+
+.hero h1 span {
+	font-weight: 400;
+}
+
+.hero p {
+	max-width: 390px;
+
+	margin: 0 0 25px;
+
+	font-size: 12px;
+	line-height: 1.55;
+
+	color: rgba(255, 255, 255, 0.85);
+}

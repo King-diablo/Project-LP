@@ -1,0 +1,100 @@
+/* ========================================
+   FAQ
+======================================== */
+
+.faq {
+	padding: var(--section-spacing, 120px) 0;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.faq__container {
+	display: grid;
+	grid-template-columns: minmax(250px, 0.8fr) minmax(0, 1.5fr);
+	gap: 80px;
+
+	align-items: start;
+}
+
+/* ========================================
+   HEADING
+======================================== */
+
+.faq__heading {
+	position: sticky;
+	top: 100px;
+}
+
+.faq__heading span {
+	display: block;
+
+	margin-bottom: 8px;
+
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+
+	color: var(--gold, #e5a129);
+}
+
+.faq__heading h2 {
+	margin: 0;
+
+	font-size: clamp(34px, 4vw, 50px);
+	font-weight: 700;
+	line-height: 1.08;
+	letter-spacing: -0.03em;
+
+	color: var(--text, #111111);
+}
+
+/* ========================================
+   FAQ LIST
+======================================== */
+
+.faq__list {
+	display: flex;
+	flex-direction: column;
+
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+	.faq {
+		padding: 90px 0;
+	}
+
+	.faq__container {
+		grid-template-columns: 1fr;
+
+		gap: 48px;
+	}
+
+	.faq__heading {
+		position: static;
+	}
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 640px) {
+	.faq {
+		padding: 64px 0;
+	}
+
+	.faq__container {
+		gap: 36px;
+	}
+
+	.faq__heading h2 {
+		font-size: 34px;
+	}
+}

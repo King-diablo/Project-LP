@@ -1,0 +1,218 @@
+/* ========================================
+   WHY US
+======================================== */
+
+.why-us {
+	position: relative;
+
+	padding: 110px 0;
+
+	background: url('/Pics/0002.png');
+
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	color: var(--white, #ffffff);
+}
+
+/* ========================================
+   HEADING
+======================================== */
+
+.why-us__heading {
+	margin-bottom: 48px;
+
+	text-align: center;
+}
+
+.why-us__heading span {
+	display: inline-block;
+
+	font-size: 25px;
+	font-weight: 1000;
+	line-height: 1.4;
+
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+
+	color: var(--white);
+}
+
+/* ========================================
+   CARDS GRID
+======================================== */
+
+.why-us__grid {
+	display: grid;
+
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+
+	gap: 20px;
+
+	max-width: 1100px;
+
+	margin: 0 auto;
+}
+
+/* ========================================
+   CARD
+======================================== */
+
+.why-us__card {
+	display: flex;
+
+	flex-direction: column;
+	align-items: center;
+
+	min-height: 260px;
+
+	padding: 34px 28px;
+
+	text-align: center;
+
+	background: rgba(255, 255, 255, 0.1);
+
+	border: 1px solid rgba(255, 255, 255, 0.18);
+
+	border-radius: 24px;
+
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+	transition:
+		transform 0.3s ease,
+		background-color 0.3s ease,
+		border-color 0.3s ease;
+}
+
+/* ========================================
+   CARD HOVER
+======================================== */
+
+.why-us__card:hover {
+	transform: translateY(-6px);
+
+	background: rgba(255, 255, 255, 0.15);
+
+	border-color: rgba(255, 255, 255, 0.28);
+}
+
+/* ========================================
+   ICON
+======================================== */
+
+.why-us__card > span {
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+
+	width: 64px;
+	height: 64px;
+
+	margin: 0 auto 22px;
+
+	flex-shrink: 0;
+
+	font-size: 28px;
+	line-height: 1;
+
+	text-align: center;
+
+	background: rgba(229, 161, 41, 0.15);
+
+	border: 1px solid rgba(229, 161, 41, 0.35);
+
+	border-radius: 50%;
+
+	color: var(--gold, #e5a129);
+}
+
+/* ========================================
+   CARD TITLE
+======================================== */
+
+.why-us__card h3 {
+	margin: 0 0 12px;
+
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1.3;
+
+	color: var(--white, #ffffff);
+}
+
+/* ========================================
+   CARD DESCRIPTION
+======================================== */
+
+.why-us__card p {
+	max-width: 280px;
+
+	margin: 0;
+
+	font-size: 14px;
+	line-height: 1.7;
+
+	color: rgba(255, 255, 255, 0.78);
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+	.why-us {
+		padding: 90px 0;
+	}
+
+	.why-us__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 640px) {
+	.why-us {
+		padding: 70px 0;
+	}
+
+	.why-us__heading {
+		margin-bottom: 36px;
+	}
+
+	.why-us__grid {
+		grid-template-columns: 1fr;
+
+		gap: 16px;
+	}
+
+	.why-us__card {
+		min-height: auto;
+
+		padding: 30px 24px;
+	}
+
+	.why-us__card > span {
+		width: 58px;
+		height: 58px;
+
+		font-size: 24px;
+	}
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.why-us__card {
+		transition: none;
+	}
+}

@@ -1,0 +1,62 @@
+:root {
+	--white: #ffffff;
+	--black: #000000;
+	--text: #111111;
+	--muted: #6b6b6b;
+
+	--gray-section: #f3f3f3;
+
+	--gold: #e5a129;
+
+	--footer: #263a48;
+
+	--radius-section: 45px;
+	--radius-card: 6px;
+
+	--container: 1140px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--white);
+	color: var(--text);
+	font-family: Inter, Arial, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button,
+input {
+	font: inherit;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+.container {
+	width: min(calc(100% - 100px), var(--container));
+
+	margin-inline: auto;
+}
+
+.section {
+	padding: 90px 0;
+}
+
+.section--gray {
+	background: var(--gray-section);
+	border-radius: var(--radius-section);
+}

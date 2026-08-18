@@ -1,0 +1,327 @@
+/* ========================================
+   ACADEMIC PATHWAYS
+======================================== */
+
+.pathways {
+	overflow: hidden;
+}
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.pathways .section-heading {
+	margin-bottom: 42px;
+	text-align: center;
+}
+
+.pathways .section-heading span {
+	display: inline-block;
+
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.4;
+
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+
+	color: var(--gold, #e5a129);
+}
+
+/* ========================================
+   PATHWAY TABS
+======================================== */
+
+.pathway-tabs {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: fit-content;
+	max-width: 100%;
+
+	margin: 0 auto 42px;
+	padding: 5px;
+
+	background: rgba(255, 255, 255, 0.75);
+
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 999px;
+
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+/* ========================================
+   TAB
+======================================== */
+
+.pathway-tab {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	gap: 7px;
+
+	min-width: 150px;
+
+	padding: 11px 18px;
+
+	border: 0;
+	border-radius: 999px;
+
+	background: transparent;
+
+	color: var(--muted, #6b6b6b);
+
+	font: inherit;
+	font-size: 12px;
+	font-weight: 600;
+
+	white-space: nowrap;
+
+	cursor: pointer;
+
+	transform: scale(0.94);
+
+	transition:
+		color 0.25s ease,
+		transform 0.25s ease;
+}
+
+.pathway-tab:hover {
+	color: var(--text, #111111);
+
+	transform: scale(0.97);
+}
+
+.pathway-tab--active {
+	color: var(--text, #111111);
+
+	transform: scale(1);
+}
+
+/* ========================================
+   TAB ICON
+======================================== */
+
+.pathway-tab__icon {
+	position: relative;
+	z-index: 2;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	flex-shrink: 0;
+
+	font-size: 14px;
+	line-height: 1;
+}
+
+/* ========================================
+   TAB TEXT
+======================================== */
+
+.pathway-tab > span:not(.pathway-tab__indicator) {
+	position: relative;
+	z-index: 2;
+}
+
+/* ========================================
+   ACTIVE INDICATOR
+======================================== */
+
+.pathway-tab__indicator {
+	position: absolute;
+
+	inset: 0;
+
+	z-index: 1;
+
+	border-radius: 999px;
+
+	background: var(--white, #ffffff);
+
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   PATHWAY CONTENT
+======================================== */
+
+.pathway-content {
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+}
+
+.pathway-content > div {
+	width: 100%;
+}
+
+.pathway-content .pathway-card {
+	width: 100%;
+	max-width: 900px;
+
+	margin: 0 auto;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+	.pathways {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+
+	.pathway-tabs {
+		max-width: 90%;
+	}
+
+	.pathway-tab {
+		min-width: 130px;
+
+		padding: 10px 15px;
+	}
+}
+
+/* ========================================
+   SMALL TABLET / LARGE MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+	.pathway-tabs {
+		display: flex;
+
+		width: 100%;
+		max-width: 100%;
+
+		justify-content: flex-start;
+
+		margin-bottom: 32px;
+
+		padding: 4px;
+
+		border-radius: 18px;
+
+		overflow-x: auto;
+		overflow-y: hidden;
+
+		scrollbar-width: none;
+
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.pathway-tabs::-webkit-scrollbar {
+		display: none;
+	}
+
+	.pathway-tab {
+		flex: 0 0 auto;
+
+		min-width: 125px;
+
+		padding: 10px 15px;
+
+		transform: scale(0.96);
+	}
+
+	.pathway-tab:hover {
+		transform: scale(0.98);
+	}
+
+	.pathway-tab--active {
+		transform: scale(1);
+	}
+
+	.pathway-content {
+		width: 100%;
+	}
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+	.pathways {
+		padding-top: 64px;
+		padding-bottom: 64px;
+	}
+
+	.pathways .section-heading {
+		margin-bottom: 30px;
+	}
+
+	.pathway-tabs {
+		margin-bottom: 26px;
+
+		border-radius: 16px;
+	}
+
+	.pathway-tab {
+		min-width: 115px;
+
+		gap: 6px;
+
+		padding: 9px 12px;
+
+		font-size: 11px;
+	}
+
+	.pathway-tab__icon {
+		font-size: 13px;
+	}
+
+	.pathway-content .pathway-card {
+		max-width: 100%;
+	}
+}
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
+@media (max-width: 360px) {
+	.pathways {
+		padding-top: 55px;
+		padding-bottom: 55px;
+	}
+
+	.pathway-tabs {
+		margin-right: -5px;
+		margin-left: -5px;
+
+		width: calc(100% + 10px);
+	}
+
+	.pathway-tab {
+		min-width: 105px;
+
+		padding: 9px 10px;
+
+		font-size: 10px;
+	}
+
+	.pathway-tab__icon {
+		font-size: 12px;
+	}
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.pathway-tab {
+		transition: none;
+	}
+}
