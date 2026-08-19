@@ -42,14 +42,17 @@ export const services = [
 
 export const stats = [
 	{
+		icon: 'Icons/Graduate.svg',
 		value: '1,000+',
 		label: 'Students Placed',
 	},
 	{
+		icon: 'Icons/Destination.svg',
 		value: '5+',
 		label: 'Destinations',
 	},
 	{
+		icon: 'Icons/Guide.svg',
 		value: '100%',
 		label: 'Tailored Guidance',
 	},

@@ -1,272 +1,77 @@
-/* ========================================
-   STATS WRAPPER
-======================================== */
-
-.stats-wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 32px;
 
 	width: 100%;
+	max-width: 620px;
 
-	margin: 56px auto 0;
+	margin: 40px auto 0;
+
+	text-align: center;
 }
 
-/* ========================================
-   STATS CONTAINER
-======================================== */
-
-.stats {
-	position: relative;
-
+.stat {
 	display: flex;
-	align-items: stretch;
-	justify-content: center;
-
-	width: fit-content;
-	max-width: 100%;
-
-	padding: 6px;
-
-	background: var(--white, #ffffff);
-
-	border: 1px solid rgba(0, 0, 0, 0.08);
-	border-radius: 22px;
-
-	box-shadow:
-		0 14px 35px rgba(0, 0, 0, 0.07),
-		0 3px 10px rgba(0, 0, 0, 0.03);
-
-	overflow: hidden;
-
-	box-sizing: border-box;
-}
-
-/* ========================================
-   ANIMATED TOP ACCENT
-======================================== */
-
-.stats::before {
-	content: '';
-
-	position: absolute;
-	top: 0;
-	left: -25%;
-
-	width: 25%;
-	height: 2px;
-
-	background: var(--gold, #e5a129);
-
-	animation: stats-accent 4s linear infinite;
-
-	pointer-events: none;
-}
-
-@keyframes stats-accent {
-	0% {
-		left: -25%;
-	}
-
-	100% {
-		left: 100%;
-	}
-}
-
-/* ========================================
-   INDIVIDUAL STAT
-======================================== */
-
-.stats .stat {
-	position: relative;
-
-	display: flex;
-	flex: 0 0 150px;
-
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 
-	width: 150px;
-	min-width: 150px;
-	min-height: 115px;
-
-	margin: 0;
-	padding: 18px 12px;
-
-	box-sizing: border-box;
+	min-height: 80px;
 
 	text-align: center;
-
-	border-right: 1px solid rgba(0, 0, 0, 0.08);
-
-	transition:
-		background-color 0.25s ease,
-		transform 0.25s ease;
 }
 
-.stats .stat:last-child {
-	border-right: none;
-}
+.stat svg {
+	width: 18px;
+	height: 18px;
 
-/* ========================================
-   STAT HOVER
-======================================== */
-
-.stats .stat:hover {
-	background: rgba(229, 161, 41, 0.06);
-
-	transform: translateY(-2px);
-}
-
-/* ========================================
-   NUMBER
-======================================== */
-
-.stats .stat strong {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	width: 100%;
-	height: auto;
-
-	margin: 0 0 10px;
-	padding: 0;
-
-	box-sizing: border-box;
-
-	font-size: 38px;
-	font-weight: 800;
-	line-height: 1;
-
-	text-align: center;
-	letter-spacing: 0;
+	margin-bottom: 8px;
 
 	color: var(--gold, #e5a129);
 }
 
-/* ========================================
-   NUMBER ACCENT
-======================================== */
-
-.stats .stat::after {
-	content: '';
-
-	position: absolute;
-
-	left: 50%;
-	bottom: 18px;
-
-	width: 18px;
-	height: 2px;
-
-	border-radius: 999px;
-
-	background: var(--gold, #e5a129);
-
-	transform: translateX(-50%);
-
-	transition: width 0.25s ease;
-}
-
-.stats .stat:hover::after {
-	width: 32px;
-}
-
-/* ========================================
-   LABEL
-======================================== */
-
-.stats .stat span {
-	display: block;
-
-	width: 100%;
-	max-width: 150px;
-
+.stat strong {
 	margin: 0;
-	padding: 0;
 
-	font-size: 10px;
-	font-weight: 600;
-	line-height: 1.4;
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.2;
 
-	text-align: center;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
+	color: var(--text, #111);
+}
+
+.stat span {
+	margin-top: 4px;
+
+	font-size: 8px;
+	font-weight: 500;
+	line-height: 1.3;
 
 	color: var(--muted, #6b6b6b);
 }
 
-/* ========================================
-   TABLET
-======================================== */
-
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 	.stats {
-		display: grid;
-		grid-template-columns: repeat(2, 150px);
+		gap: 16px;
+		margin-top: 32px;
 	}
 
-	.stats .stat {
-		flex: none;
-
-		width: 150px;
-		min-width: 150px;
+	.stat svg {
+		width: 16px;
+		height: 16px;
 	}
 
-	.stats .stat:nth-child(2) {
-		border-right: none;
+	.stat strong {
+		font-size: 12px;
 	}
 
-	.stats .stat:nth-child(-n + 2) {
-		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	.stat span {
+		font-size: 7px;
 	}
 }
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 400px) {
-	.stats-wrapper {
-		margin-top: 44px;
-	}
-
-	.stats {
-		grid-template-columns: repeat(2, minmax(120px, 1fr));
-
-		width: calc(100% - 32px);
-	}
-
-	.stats .stat {
-		width: 100%;
-		min-width: 0;
-		min-height: 105px;
-
-		padding: 16px 8px;
-	}
-
-	.stats .stat strong {
-		font-size: 32px;
-	}
-
-	.stats .stat span {
-		font-size: 9px;
-	}
-}
-
-/* ========================================
-   REDUCED MOTION
-======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-	.stats::before {
-		animation: none;
-	}
-
-	.stats .stat,
-	.stats .stat::after {
-		transition: none;
+	.stats {
+		opacity: 1 !important;
 	}
 }
