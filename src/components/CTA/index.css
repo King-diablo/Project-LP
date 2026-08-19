@@ -3,107 +3,36 @@
 ======================================== */
 
 .cta {
-	position: relative;
+	padding: 70px 20px;
 
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	min-height: 420px;
-
-	padding: 80px 24px;
-
-	overflow: hidden;
-
-	/* background: var(--gold, #e5a129); */
-
-	background:
-		linear-gradient(90deg, rgba(10, 19, 23, 0.78), rgba(10, 19, 23, 0.25)),
-		url('/Pics/0003.png') center / cover no-repeat;
-
-	color: white;
-
-	border-radius: var(--radius-section, 45px);
-
-	/* .cta {
-	min-height: 330px;
-
-	display: flex;
-	align-items: center;
-
-	padding: 60px 50px;
-
-	border-radius: 0 0 45px 45px;
-
-
-} */
+	background: url('/Pics/0003.png') center / cover no-repeat;
 }
-
-/* ========================================
-   DECORATIVE BACKGROUND
-======================================== */
-
-.cta::before,
-.cta::after {
-	content: '';
-
-	position: absolute;
-
-	border-radius: 50%;
-
-	pointer-events: none;
-}
-
-.cta::before {
-	width: 320px;
-	height: 320px;
-
-	top: -180px;
-	left: -100px;
-
-	border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.cta::after {
-	width: 420px;
-	height: 420px;
-
-	right: -180px;
-	bottom: -260px;
-
-	border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* ========================================
-   CONTENT
-======================================== */
 
 .cta__content {
-	position: relative;
-	z-index: 1;
-
-	width: min(100%, 700px);
+	width: 100%;
+	max-width: 620px;
+	margin: 0 auto;
 
 	text-align: center;
 }
 
 .cta__content h2 {
-	margin: 0 0 20px;
+	margin: 0 0 12px;
 
-	font-size: clamp(42px, 6vw, 68px);
-	font-weight: 800;
-	line-height: 0.98;
-	letter-spacing: -0.04em;
+	font-size: clamp(28px, 5vw, 42px);
+	font-weight: 700;
+	line-height: 1.05;
+	letter-spacing: -0.03em;
 
-	color: var(--white, #ffffff);
+	color: var(--white, #fff);
 }
 
 .cta__content p {
-	max-width: 520px;
-	margin: 0 auto 32px;
+	max-width: 420px;
+	margin: 0 auto 24px;
 
-	font-size: 16px;
-	line-height: 1.7;
+	font-size: 13px;
+	line-height: 1.5;
 
 	color: rgba(255, 255, 255, 0.85);
 }
@@ -112,38 +41,42 @@
    MOBILE
 ======================================== */
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
 	.cta {
-		min-height: 360px;
-
-		padding: 64px 20px;
-
-		border-radius: 28px;
+		padding: 56px 20px;
 	}
 
 	.cta__content h2 {
-		font-size: 42px;
+		font-size: 30px;
 	}
 
 	.cta__content p {
-		font-size: 15px;
+		max-width: 320px;
+		margin-bottom: 20px;
+		font-size: 12px;
+	}
+}
 
-		margin-bottom: 28px;
+@media (max-width: 400px) {
+	.cta {
+		padding: 48px 16px;
 	}
 
-	.cta::before {
-		width: 220px;
-		height: 220px;
-
-		top: -120px;
-		left: -100px;
+	.cta__content h2 {
+		font-size: 27px;
 	}
 
-	.cta::after {
-		width: 280px;
-		height: 280px;
+	.cta__content p {
+		font-size: 11px;
+	}
+}
 
-		right: -140px;
-		bottom: -180px;
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.cta {
+		transition: none;
 	}
 }
