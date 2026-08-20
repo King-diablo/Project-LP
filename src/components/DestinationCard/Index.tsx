@@ -1,26 +1,14 @@
-import { motion } from 'motion/react';
-
-import './Index.css';
-
-type Props = {
+type DestinationCardProps = {
 	name: string;
-	flag: string;
 	ico: string;
 };
 
-export function DestinationCard({ name, ico }: Props) {
+export function DestinationCard({ name, ico }: DestinationCardProps) {
 	return (
-		<motion.div
-			className='destination-card'
-			whileHover={{
-				y: -4,
-			}}
-		>
-			<span className='destination-card__flag'>
-				<motion.img src={ico} alt={`${name} icon`} width={50} height={50} />
-			</span>
+		<div className='destination-card'>
+			<img src={ico} alt={`${name} flag`} className='destination-card__flag' />
 
-			<span>{name}</span>
-		</motion.div>
+			<span className='destination-card__name'>{name}</span>
+		</div>
 	);
 }

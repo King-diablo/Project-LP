@@ -5,15 +5,52 @@
 .why-us {
 	position: relative;
 
-	padding: 110px 0;
+	min-height: 620px;
 
-	background: url('/Pics/0002.png');
+	padding: 70px 0;
 
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+	background: #17242c;
 
-	color: var(--white, #ffffff);
+	overflow: hidden;
+}
+
+/* ========================================
+   BACKGROUND
+======================================== */
+
+.why-us__background {
+	position: absolute;
+	inset: 0;
+
+	background:
+		linear-gradient(
+			90deg,
+			rgba(8, 22, 28, 0.88) 0%,
+			rgba(8, 22, 28, 0.72) 2%,
+			rgba(8, 22, 28, 0.78) 5%
+		),
+		url('/Pics/0002.png') center / cover no-repeat;
+
+	z-index: 0;
+}
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.why-us .container {
+	position: relative;
+	z-index: 1;
+
+	min-height: 480px;
+}
+
+.why-us__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	min-height: 480px;
 }
 
 /* ========================================
@@ -21,143 +58,89 @@
 ======================================== */
 
 .why-us__heading {
-	margin-bottom: 48px;
-
-	text-align: center;
+	padding-top: 10px;
 }
 
 .why-us__heading span {
-	display: inline-block;
+	font-size: 13px;
+	font-weight: 700;
 
-	font-size: 25px;
-	font-weight: 1000;
-	line-height: 1.4;
-
-	letter-spacing: 0.1em;
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
 
-	color: var(--white);
+	color: rgba(255, 255, 255, 0.9);
 }
 
 /* ========================================
-   CARDS GRID
+   CARDS
 ======================================== */
 
 .why-us__grid {
 	display: grid;
 
-	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-template-columns: repeat(3, 1fr);
 
-	gap: 20px;
+	gap: 18px;
 
-	max-width: 1100px;
-
-	margin: 0 auto;
+	margin-top: auto;
 }
-
-/* ========================================
-   CARD
-======================================== */
 
 .why-us__card {
-	display: flex;
+	min-height: 220px;
 
-	flex-direction: column;
-	align-items: center;
+	padding: 32px 28px;
 
-	min-height: 260px;
+	background: rgba(32, 48, 57, 0.82);
 
-	padding: 34px 28px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 16px;
 
-	text-align: center;
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
 
-	background: rgba(255, 255, 255, 0.1);
-
-	border: 1px solid rgba(255, 255, 255, 0.18);
-
-	border-radius: 24px;
-
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-
-	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-
-	transition:
-		transform 0.3s ease,
-		background-color 0.3s ease,
-		border-color 0.3s ease;
-}
-
-/* ========================================
-   CARD HOVER
-======================================== */
-
-.why-us__card:hover {
-	transform: translateY(-6px);
-
-	background: rgba(255, 255, 255, 0.15);
-
-	border-color: rgba(255, 255, 255, 0.28);
+	color: var(--white, #fff);
 }
 
 /* ========================================
    ICON
 ======================================== */
 
-.why-us__card > span {
+.why-us__icon {
 	display: flex;
-
 	align-items: center;
 	justify-content: center;
 
-	width: 64px;
-	height: 64px;
+	width: 42px;
+	height: 42px;
 
-	margin: 0 auto 22px;
-
-	flex-shrink: 0;
-
-	font-size: 28px;
-	line-height: 1;
-
-	text-align: center;
-
-	background: rgba(229, 161, 41, 0.15);
-
-	border: 1px solid rgba(229, 161, 41, 0.35);
-
-	border-radius: 50%;
+	margin-bottom: 26px;
 
 	color: var(--gold, #e5a129);
+
+	font-size: 22px;
 }
 
 /* ========================================
-   CARD TITLE
+   CARD TEXT
 ======================================== */
 
 .why-us__card h3 {
-	margin: 0 0 12px;
+	margin: 0 0 14px;
 
-	font-size: 20px;
-	font-weight: 700;
+	font-size: 18px;
+	font-weight: 600;
 	line-height: 1.3;
 
-	color: var(--white, #ffffff);
+	color: #fff;
 }
 
-/* ========================================
-   CARD DESCRIPTION
-======================================== */
-
 .why-us__card p {
-	max-width: 280px;
-
 	margin: 0;
 
 	font-size: 14px;
 	line-height: 1.7;
 
-	color: rgba(255, 255, 255, 0.78);
+	color: rgba(255, 255, 255, 0.7);
 }
 
 /* ========================================
@@ -166,11 +149,26 @@
 
 @media (max-width: 900px) {
 	.why-us {
-		padding: 90px 0;
+		min-height: auto;
+
+		padding: 70px 0;
+	}
+
+	.why-us .container,
+	.why-us__content {
+		min-height: auto;
 	}
 
 	.why-us__grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px;
+
+		margin-top: 220px;
+	}
+
+	.why-us__card {
+		min-height: 200px;
+
+		padding: 26px 22px;
 	}
 }
 
@@ -178,32 +176,39 @@
    MOBILE
 ======================================== */
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
 	.why-us {
-		padding: 70px 0;
+		padding: 55px 0;
 	}
 
-	.why-us__heading {
-		margin-bottom: 36px;
+	.why-us__background {
+		background-position: center;
 	}
 
 	.why-us__grid {
 		grid-template-columns: 1fr;
 
-		gap: 16px;
+		margin-top: 180px;
+
+		gap: 12px;
 	}
 
 	.why-us__card {
 		min-height: auto;
 
-		padding: 30px 24px;
+		padding: 24px;
 	}
 
-	.why-us__card > span {
-		width: 58px;
-		height: 58px;
+	.why-us__icon {
+		margin-bottom: 16px;
+	}
 
-		font-size: 24px;
+	.why-us__card h3 {
+		font-size: 17px;
+	}
+
+	.why-us__card p {
+		font-size: 13px;
 	}
 }
 
@@ -212,7 +217,7 @@
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-	.why-us__card {
-		transition: none;
+	.why-us * {
+		transition: none !important;
 	}
 }

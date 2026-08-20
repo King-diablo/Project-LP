@@ -1,52 +1,63 @@
+/* ========================================
+   DESTINATIONS
+======================================== */
+
 .destinations {
-	padding: var(--section-spacing, 120px) 0;
+	padding: 80px 0;
 }
 
+/* ========================================
+   HEADING
+======================================== */
+
 .destinations .section-heading {
-	margin-bottom: 48px;
-	text-align: center;
+	margin-bottom: 28px;
 }
 
 .destinations .section-heading span {
-	display: inline-block;
-
-	font-size: 13px;
+	font-size: 12px;
 	font-weight: 700;
-	line-height: 1.4;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
 
-	color: var(--gold, #e5a129);
+	color: var(--text, #111);
 }
+
+/* ========================================
+   GRID
+======================================== */
 
 .destination-grid {
 	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 24px;
+
+	grid-template-columns: repeat(4, 1fr);
+
+	gap: 28px 40px;
 }
+
+/* ========================================
+   RESPONSIVE
+======================================== */
 
 @media (max-width: 900px) {
 	.destinations {
-		padding: 90px 0;
+		padding: 70px 0;
 	}
 
 	.destination-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 20px;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 28px;
 	}
 }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
 	.destinations {
-		padding: 64px 0;
-	}
-
-	.destinations .section-heading {
-		margin-bottom: 36px;
+		padding: 60px 0;
 	}
 
 	.destination-grid {
-		grid-template-columns: 1fr;
-		gap: 16px;
+		grid-template-columns: repeat(2, 1fr);
+
+		gap: 24px 20px;
 	}
 }
