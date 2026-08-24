@@ -14,18 +14,14 @@ export function Hero() {
 					className='hero__text'
 					initial={{
 						opacity: 0,
-						y: 20,
+						y: 30,
 					}}
-					whileInView={{
+					animate={{
 						opacity: 1,
 						y: 0,
 					}}
-					viewport={{
-						once: true,
-						amount: 0.2,
-					}}
 					transition={{
-						duration: 0.6,
+						duration: 0.7,
 						ease: 'easeOut',
 					}}
 				>

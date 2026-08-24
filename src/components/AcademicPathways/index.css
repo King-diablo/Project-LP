@@ -1,243 +1,212 @@
-/* ========================================
-   ACADEMIC PATHWAYS
-======================================== */
-
 .pathways {
-	padding: 48px 0 56px;
-	background: var(--section-gray, #f5f5f5);
+	background: #f5f5f5;
+	padding: 72px 0 80px;
 }
 
-/* ========================================
-   SECTION HEADING
-======================================== */
-
-.pathways .section-heading {
-	margin-bottom: 16px;
-}
-
-.pathways .section-heading span {
-	font-size: 11px;
-	font-weight: 700;
-	line-height: 1.2;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
-
-	color: var(--text, #111);
-}
-
-/* ========================================
-   PATHWAYS GRID
-======================================== */
-
-.pathways-grid {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 8px;
-
-	width: 100%;
-	max-width: 620px;
+.pathways .container {
+	width: min(1120px, calc(100% - 40px));
 	margin: 0 auto;
 }
 
-/* ========================================
-   PATHWAY CARD
-======================================== */
-
-.pathways-grid .pathway-card {
-	min-width: 0;
-	padding: 14px;
-
-	background: var(--white, #fff);
-	border: 1px solid rgba(17, 17, 17, 0.08);
-	border-radius: 5px;
-
-	box-shadow: none;
+/* Section heading */
+.pathways .section-heading {
+	margin-bottom: 24px;
 }
 
-/* ========================================
-   ICON
-======================================== */
-
-.pathways-grid .pathway-card__icon {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-
-	width: 16px;
-	height: 16px;
-
-	margin-bottom: 6px;
-
-	color: var(--gold, #e5a129);
-}
-
-.pathways-grid .pathway-card__icon img {
+.pathways .section-heading span {
 	display: block;
 
-	width: 100%;
-	height: 100%;
+	font-size: 25px;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 
-	object-fit: contain;
+	color: #111;
 }
 
-/* ========================================
-   TITLE
-======================================== */
+/* Cards grid */
+.pathways-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
 
-.pathways-grid .pathway-card h3 {
-	margin: 0 0 3px;
+/*
+ * PathwayCard
+ */
+.pathway-card {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+
+	min-height: 190px;
+	padding: 22px 24px;
+
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 8px;
+
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Icon */
+.pathway-card__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 28px;
+	height: 28px;
+
+	margin-bottom: 10px;
+
+	color: #f4a300;
+}
+
+.pathway-card__icon svg {
+	width: 18px;
+	height: 18px;
+	stroke-width: 2.4;
+}
+
+/* Main title */
+.pathway-card h3,
+.pathway-card__title {
+	margin: 0;
+
+	font-size: 17px;
+	font-weight: 800;
+	line-height: 1.15;
+
+	color: #111;
+}
+
+/* Secondary title */
+.pathway-card h4,
+.pathway-card__subtitle {
+	margin: 4px 0 7px;
 
 	font-size: 11px;
 	font-weight: 700;
 	line-height: 1.2;
-	letter-spacing: -0.01em;
 
-	color: var(--text, #111);
+	color: #111;
 }
 
-/* ========================================
-   DESCRIPTION
-======================================== */
+/* Description */
+.pathway-card p,
+.pathway-card__description {
+	max-width: 460px;
 
-.pathways-grid .pathway-card p {
-	margin: 0;
+	margin: 0 0 10px;
 
-	font-size: 8px;
+	font-size: 10px;
 	font-weight: 400;
 	line-height: 1.45;
 
-	color: var(--muted, #6b6b6b);
+	color: #555;
 }
 
-/* ========================================
-   LIST / FEATURES
-======================================== */
+/* Benefits */
+.pathway-card ul,
+.pathway-card__features {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 
-.pathways-grid .pathway-card ul {
-	margin: 6px 0 0;
-	padding-left: 12px;
+	margin: auto 0 0;
+	padding: 0;
+
+	list-style: none;
 }
 
-.pathways-grid .pathway-card li {
-	margin: 2px 0;
+.pathway-card li,
+.pathway-card__feature {
+	position: relative;
 
-	font-size: 7px;
+	padding-left: 13px;
+
+	font-size: 9px;
+	font-weight: 500;
 	line-height: 1.35;
 
-	color: var(--muted, #6b6b6b);
+	color: #333;
 }
 
-/* ========================================
-   TABLET
-======================================== */
+.pathway-card li::before,
+.pathway-card__feature::before {
+	content: '';
 
-@media (max-width: 900px) {
+	position: absolute;
+	top: 5px;
+	left: 0;
+
+	width: 4px;
+	height: 4px;
+
+	border-radius: 50%;
+	background: #f4a300;
+}
+
+/* Tablet */
+@media (max-width: 800px) {
 	.pathways {
-		padding: 44px 0 52px;
+		padding: 60px 0;
+	}
+
+	.pathways .container {
+		width: min(100% - 32px, 620px);
 	}
 
 	.pathways-grid {
-		max-width: 600px;
-		gap: 8px;
+		grid-template-columns: 1fr;
+		gap: 12px;
 	}
 
-	.pathways-grid .pathway-card {
-		padding: 13px;
+	.pathway-card {
+		min-height: 0;
+		padding: 20px;
 	}
 }
 
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 600px) {
+/* Mobile */
+@media (max-width: 480px) {
 	.pathways {
-		padding: 40px 0 48px;
+		padding: 48px 0 56px;
+	}
+
+	.pathways .container {
+		width: calc(100% - 28px);
 	}
 
 	.pathways .section-heading {
-		margin-bottom: 14px;
+		margin-bottom: 18px;
 	}
 
 	.pathways .section-heading span {
+		font-size: 11px;
+	}
+
+	.pathway-card {
+		padding: 18px;
+		border-radius: 7px;
+	}
+
+	.pathway-card h3,
+	.pathway-card__title {
+		font-size: 16px;
+	}
+
+	.pathway-card p,
+	.pathway-card__description {
 		font-size: 10px;
+		line-height: 1.5;
 	}
 
-	.pathways-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 7px;
-	}
-
-	.pathways-grid .pathway-card {
-		padding: 12px;
-	}
-
-	.pathways-grid .pathway-card__icon {
-		width: 14px;
-		height: 14px;
-
-		margin-bottom: 5px;
-	}
-
-	.pathways-grid .pathway-card h3 {
-		font-size: 10px;
-	}
-
-	.pathways-grid .pathway-card p {
-		font-size: 7px;
-	}
-
-	.pathways-grid .pathway-card ul {
-		margin-top: 5px;
-		padding-left: 10px;
-	}
-
-	.pathways-grid .pathway-card li {
-		font-size: 6.5px;
-	}
-}
-
-/* ========================================
-   SMALL MOBILE
-======================================== */
-
-@media (max-width: 400px) {
-	.pathways {
-		padding: 36px 0 44px;
-	}
-
-	.pathways-grid {
-		gap: 6px;
-	}
-
-	.pathways-grid .pathway-card {
-		padding: 10px;
-	}
-
-	.pathways-grid .pathway-card__icon {
-		width: 13px;
-		height: 13px;
-	}
-
-	.pathways-grid .pathway-card h3 {
+	.pathway-card li,
+	.pathway-card__feature {
 		font-size: 9px;
-	}
-
-	.pathways-grid .pathway-card p {
-		font-size: 6.5px;
-	}
-
-	.pathways-grid .pathway-card li {
-		font-size: 6px;
-	}
-}
-
-/* ========================================
-   REDUCED MOTION
-======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-	.pathways {
-		transition: none;
 	}
 }

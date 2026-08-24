@@ -7,11 +7,12 @@ export function Stats() {
 		<div className='stats'>
 			{stats.map((stat) => (
 				<div className='stat' key={stat.label}>
-					<img src={stat.icon} alt={stat.label} className='stat__icon' />
+					<img src={stat.icon} alt='' className='stat__icon' />
 
-					<strong>{stat.value}</strong>
-
-					<span>{stat.label}</span>
+					<div className='stat__content'>
+						<strong>{stat.value}</strong>
+						<span>{stat.label}</span>
+					</div>
 				</div>
 			))}
 		</div>

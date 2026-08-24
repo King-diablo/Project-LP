@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
 import { Button } from '../Button/Index';
 import { navLinks } from '../../data/siteInfo';
-import { Menu, X } from 'lucide-react';
 
 import './Index.css';
 
@@ -12,10 +13,15 @@ export function Navbar() {
 		setIsMenuOpen(false);
 	};
 
+	const toggleMenu = () => {
+		setIsMenuOpen((prev) => !prev);
+	};
+
 	return (
 		<header className='navbar'>
-			<a href='/' className='navbar__logo' onClick={closeMenu}>
+			<a href='/' className='navbar__logo' onClick={closeMenu} aria-label='Mon Eclat Consult Home'>
 				<strong>MON</strong>
+
 				<span>
 					E'CLAT
 					<br />
@@ -23,7 +29,7 @@ export function Navbar() {
 				</span>
 			</a>
 
-			<nav className='navbar__links'>
+			<nav className='navbar__links' aria-label='Main navigation'>
 				{navLinks.map((link) => (
 					<a key={link.href} href={link.href}>
 						{link.label}
@@ -35,11 +41,11 @@ export function Navbar() {
 				<Button href='#contact'>BOOK A CONSULTATION</Button>
 			</div>
 
-			<button type='button' className='navbar__menu' aria-label={isMenuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen((open) => !open)}>
-				{isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+			<button type='button' className='navbar__menu' aria-label={isMenuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={isMenuOpen} aria-controls='mobile-navigation' onClick={toggleMenu}>
+				{isMenuOpen ? <X size={24} /> : <Menu size={24} />}
 			</button>
 
-			<nav className={`navbar__mobile ${isMenuOpen ? 'navbar__mobile--open' : ''}`}>
+			<nav id='mobile-navigation' className={`navbar__mobile ${isMenuOpen ? 'navbar__mobile--open' : ''}`} aria-label='Mobile navigation'>
 				{navLinks.map((link) => (
 					<a key={link.href} href={link.href} onClick={closeMenu}>
 						{link.label}

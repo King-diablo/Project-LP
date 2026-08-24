@@ -6,38 +6,90 @@ import { Stats } from '../Stats/Index';
 
 import './Index.css';
 
+const fadeUp = {
+	hidden: {
+		opacity: 0,
+		y: 30,
+	},
+	visible: {
+		opacity: 1,
+		y: 0,
+	},
+};
+
 export function WhatWeDo() {
 	return (
 		<section id='services' className='services'>
-			<motion.div
-				className='container'
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				viewport={{
-					once: true,
-					amount: 0.15,
-				}}
-				transition={{
-					duration: 0.8,
-					ease: 'easeOut',
-				}}
-			>
-				<div className='section-heading'>
+			<div className='container'>
+				<motion.div
+					className='section-heading'
+					variants={fadeUp}
+					initial='hidden'
+					whileInView='visible'
+					viewport={{
+						once: true,
+						amount: 0.3,
+					}}
+					transition={{
+						duration: 0.6,
+						ease: 'easeOut',
+					}}
+				>
 					<span>What We Do</span>
 
 					<h2>Supporting your journey from application to arrival.</h2>
 
 					<p>From finding the right study destination to visa and travel support, we help you every step of the way.</p>
-				</div>
+				</motion.div>
 
-				<div className='services-list'>
+				<motion.div
+					className='services-list'
+					initial='hidden'
+					whileInView='visible'
+					viewport={{
+						once: true,
+						amount: 0.15,
+					}}
+					variants={{
+						hidden: {},
+						visible: {
+							transition: {
+								staggerChildren: 0.15,
+							},
+						},
+					}}
+				>
 					{services.map((service) => (
-						<ServiceCard key={service.title} {...service} />
+						<motion.div
+							key={service.title}
+							variants={fadeUp}
+							transition={{
+								duration: 0.6,
+								ease: 'easeOut',
+							}}
+						>
+							<ServiceCard {...service} />
+						</motion.div>
 					))}
-				</div>
+				</motion.div>
 
-				<Stats />
-			</motion.div>
+				<motion.div
+					initial='hidden'
+					whileInView='visible'
+					viewport={{
+						once: true,
+						amount: 0.2,
+					}}
+					variants={fadeUp}
+					transition={{
+						duration: 0.7,
+						ease: 'easeOut',
+						delay: 0.1,
+					}}
+				>
+					<Stats />
+				</motion.div>
+			</div>
 		</section>
 	);
 }

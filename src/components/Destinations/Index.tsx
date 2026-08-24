@@ -26,7 +26,7 @@ export function Destinations() {
 		>
 			<div className='container'>
 				<motion.div
-					className='section-heading'
+					className='section-heading destinations-heading'
 					variants={{
 						hidden: {
 							opacity: 0,
@@ -48,6 +48,7 @@ export function Destinations() {
 					{destinations.map((destination) => (
 						<motion.div
 							key={destination.name}
+							className='destination-item'
 							variants={{
 								hidden: {
 									opacity: 0,
