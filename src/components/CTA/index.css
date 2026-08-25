@@ -6,7 +6,7 @@
 	position: relative;
 
 	width: 100%;
-	min-height: clamp(420px, 46vw, 600px);
+	height: 820px;
 
 	display: flex;
 	align-items: stretch;
@@ -19,13 +19,15 @@
 	background-repeat: no-repeat;
 }
 
-/* Dark overlay */
+/* ========================================
+   OVERLAY
+======================================== */
 
 .cta__overlay {
 	position: absolute;
 	inset: 0;
 
-	background: rgba(5, 18, 24, 0.32);
+	background: rgba(5, 18, 24, 0.28);
 
 	pointer-events: none;
 }
@@ -39,19 +41,17 @@
 	z-index: 1;
 
 	width: 100%;
-	max-width: 1600px;
+	max-width: 1440px;
 
 	margin: 0 auto;
 
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
-	gap: 40px;
 
-	padding:
-		clamp(40px, 6vw, 90px)
-		clamp(24px, 13.5vw, 220px)
-		clamp(40px, 5vw, 72px);
+	padding: 0 8% 72px;
+
+	gap: 40px;
 }
 
 /* ========================================
@@ -59,37 +59,38 @@
 ======================================== */
 
 .cta__text {
-	max-width: 650px;
-
 	display: flex;
 	flex-direction: column;
+
 	align-items: flex-start;
+
+	max-width: 600px;
 }
 
 .cta__text h2 {
-	margin: 0 0 clamp(16px, 2vw, 28px);
+	margin: 0 0 20px;
 
-	color: #fff;
+	color: #ffffff;
 
-	font-size: clamp(38px, 4vw, 50px);
-	font-weight: 900;
-	line-height: 1.08;
+	font-size: 52px;
+	font-weight: 800;
+	line-height: 1.05;
 
-	letter-spacing: -0.03em;
+	letter-spacing: -0.04em;
 }
 
 .cta__text p {
 	margin: 0;
 
-	color: rgba(255, 255, 255, 0.94);
+	color: #ffffff;
 
-	font-size: clamp(17px, 2vw, 26px);
-	font-weight: 700;
-	line-height: 1.35;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 1.4;
 }
 
 /* ========================================
-   ACTION
+   BUTTON
 ======================================== */
 
 .cta__action {
@@ -97,49 +98,81 @@
 
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
 }
 
-/*
-	If your Button component renders a button,
-	this targets it without needing className support.
-*/
-
 .cta__action button {
-	min-width: 205px;
-	min-height: 56px;
+	min-width: 220px;
+	height: 58px;
 
-	padding: 0 28px;
+	padding: 0 30px;
 
 	border-radius: 999px;
+
+	white-space: nowrap;
+}
+
+/* ========================================
+   LARGE TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+	.cta {
+		height: 400px;
+	}
+
+	.cta__content {
+		padding: 0 7% 60px;
+	}
+
+	.cta__text h2 {
+		font-size: 46px;
+	}
+
+	.cta__text p {
+		font-size: 19px;
+	}
 }
 
 /* ========================================
    TABLET
 ======================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 	.cta {
-		min-height: 480px;
+		height: 520px;
 
 		background-position: center;
 	}
 
 	.cta__content {
-		padding:
-			60px
-			clamp(32px, 8vw, 72px)
-			56px;
+		flex-direction: column;
+
+		align-items: flex-start;
+		justify-content: flex-end;
+
+		padding: 48px 48px 56px;
 
 		gap: 32px;
 	}
 
+	.cta__text {
+		max-width: 520px;
+	}
+
 	.cta__text h2 {
-		font-size: clamp(36px, 5vw, 46px);
+		font-size: 46px;
 	}
 
 	.cta__text p {
-		font-size: clamp(16px, 2.5vw, 21px);
+		font-size: 20px;
+	}
+
+	.cta__action {
+		width: auto;
+	}
+
+	.cta__action button {
+		min-width: 220px;
 	}
 }
 
@@ -147,51 +180,49 @@
    MOBILE
 ======================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 	.cta {
-		min-height: 520px;
+		height: 500px;
 
 		background-position: center;
 	}
 
+	.cta__overlay {
+		background: rgba(5, 18, 24, 0.38);
+	}
+
 	.cta__content {
-		flex-direction: column;
-		align-items: flex-start;
-		justify-content: flex-end;
+		padding: 40px 24px 40px;
 
 		gap: 28px;
-
-		padding: 48px 24px 36px;
 	}
 
 	.cta__text {
 		width: 100%;
-		max-width: 500px;
 	}
 
 	.cta__text h2 {
 		margin-bottom: 16px;
 
-		font-size: clamp(34px, 9vw, 46px);
-		line-height: 1.05;
+		font-size: 38px;
+		line-height: 1.08;
 	}
 
 	.cta__text p {
-		font-size: clamp(16px, 4vw, 20px);
-		line-height: 1.4;
+		font-size: 17px;
+		line-height: 1.45;
 	}
 
 	.cta__action {
 		width: 100%;
-
-		justify-content: flex-start;
 	}
 
 	.cta__action button {
-		width: 100%;
-		max-width: 280px;
+		width: auto;
+		min-width: 210px;
+		height: 54px;
 
-		min-height: 54px;
+		padding: 0 24px;
 	}
 
 	.desktop-break {
@@ -203,26 +234,26 @@
    SMALL MOBILE
 ======================================== */
 
-@media (max-width: 400px) {
+@media (max-width: 380px) {
 	.cta {
-		min-height: 480px;
+		height: 480px;
 	}
 
 	.cta__content {
-		padding: 40px 20px 28px;
+		padding: 32px 20px;
 	}
 
 	.cta__text h2 {
-		font-size: 32px;
+		font-size: 34px;
 	}
 
 	.cta__text p {
-		font-size: 15px;
+		font-size: 16px;
 	}
 
 	.cta__action button {
-		max-width: none;
-		width: 100%;
+		min-width: 200px;
+		font-size: 12px;
 	}
 }
 
@@ -232,6 +263,6 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.cta {
-		transition: none;
+		scroll-behavior: auto;
 	}
 }

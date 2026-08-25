@@ -11,23 +11,28 @@ export function CTA() {
 
 	return (
 		<>
-			<motion.section
-				id='contact'
-				className='cta'
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				viewport={{
-					once: true,
-					amount: 0.2,
-				}}
-				transition={{
-					duration: 0.7,
-					ease: 'easeOut',
-				}}
-			>
+			<section id='contact' className='cta'>
 				<div className='cta__overlay' />
 
-				<div className='cta__content'>
+				<motion.div
+					className='cta__content'
+					initial={{
+						opacity: 0,
+						y: 30,
+					}}
+					whileInView={{
+						opacity: 1,
+						y: 0,
+					}}
+					viewport={{
+						once: true,
+						amount: 0.25,
+					}}
+					transition={{
+						duration: 0.7,
+						ease: 'easeOut',
+					}}
+				>
 					<div className='cta__text'>
 						<h2>
 							Ready to Take
@@ -47,8 +52,8 @@ export function CTA() {
 							BOOK A CONSULTATION
 						</Button>
 					</div>
-				</div>
-			</motion.section>
+				</motion.div>
+			</section>
 
 			<ConsultationModal isOpen={isConsultationOpen} onClose={() => setIsConsultationOpen(false)} />
 		</>
