@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { pathways } from '../../data/siteInfo';
 import { PathwayCard } from '../PathwayCard/Index';
 
-import './Index.css';
+import './index.css';
 
 export function AcademicPathways() {
 	return (
