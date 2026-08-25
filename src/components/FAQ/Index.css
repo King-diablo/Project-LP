@@ -1,85 +1,112 @@
+/* ========================================
+   FAQ SECTION
+======================================== */
+
 .faq {
-	padding: 60px 0 70px;
+	width: 100%;
+	padding: 90px 0;
+
 	background: var(--white, #fff);
 }
 
 .faq__container {
 	width: 100%;
-	max-width: 620px;
-	margin: 0 auto;
+	max-width: none;
+
+	margin: 0;
+	padding: 0 clamp(24px, 6vw, 96px);
+
 }
 
+/* ========================================
+   HEADING
+======================================== */
+
 .faq__heading {
-	margin-bottom: 28px;
+	margin-bottom: 42px;
 }
 
 .faq__heading span {
 	display: block;
 
-	font-size: 11px;
-	font-weight: 600;
+	margin-bottom: 4px;
+
+	font-size: 20px;
+	font-weight: 900;
 	line-height: 1.2;
 
 	color: var(--muted, #6b6b6b);
 }
 
 .faq__heading h2 {
-	margin: 2px 0 0;
+	margin: 0;
 
-	font-size: 18px;
-	font-weight: 700;
-	line-height: 1.15;
-	letter-spacing: -0.02em;
+	font-size: clamp(38px, 3vw, 44px);
+	font-weight: 900;
+	line-height: 1.05;
+	letter-spacing: -0.04em;
 
 	color: var(--text, #111);
 }
 
+/* ========================================
+   FAQ LIST
+======================================== */
+
 .faq__list {
 	width: 100%;
-	max-width: 560px;
+	max-width: none;
 
-	margin: 0 auto;
+	margin: 0;
 
-	border: 1px solid rgba(17, 17, 17, 0.16);
-	border-radius: 16px;
+	border: 1px solid black;
+	border-radius: 20px;
+
+	padding: 20px;
 
 	overflow: hidden;
 }
 
-@media (max-width: 600px) {
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 768px) {
 	.faq {
-		padding: 50px 0 60px;
+		padding: 70px 0;
+	}
+
+	.faq__container {
+		padding: 0 24px;
 	}
 
 	.faq__heading {
-		margin-bottom: 24px;
-		margin-left: 20px;
-	}
-
-	.faq__heading h2 {
-		font-size: 20px;
-	}
-
-	.faq__list {
-		max-width: 100%;
-		border-radius: 14px;
+		margin-bottom: 32px;
 	}
 }
 
-@media (max-width: 400px) {
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
 	.faq {
-		padding: 44px 0 52px;
+		padding: 56px 0;
+	}
+
+	.faq__container {
+		padding: 0 20px;
 	}
 
 	.faq__heading {
-		margin-bottom: 22px;
+		margin-bottom: 28px;
+	}
+
+	.faq__heading span {
+		font-size: 11px;
 	}
 
 	.faq__heading h2 {
-		font-size: 15px;
-	}
-
-	.faq__list {
-		border-radius: 12px;
+		font-size: 30px;
 	}
 }

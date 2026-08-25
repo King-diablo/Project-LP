@@ -3,18 +3,18 @@ import { motion } from 'motion/react';
 import { pathways } from '../../data/siteInfo';
 import { PathwayCard } from '../PathwayCard/Index';
 
-import './index.css';
+import './Index.css';
 
 export function AcademicPathways() {
 	return (
 		<section className='pathways section section--gray'>
 			<motion.div
-				className='container'
+				className='pathways__container'
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
 				viewport={{
 					once: true,
-					margin: '0px 0px -15% 0px',
+					amount: 0.2,
 				}}
 				transition={{
 					duration: 0.7,

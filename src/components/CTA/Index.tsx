@@ -18,7 +18,7 @@ export function CTA() {
 				whileInView={{ opacity: 1 }}
 				viewport={{
 					once: true,
-					margin: '0px 0px -15% 0px',
+					amount: 0.25,
 				}}
 				transition={{
 					duration: 0.7,
@@ -26,15 +26,23 @@ export function CTA() {
 				}}
 			>
 				<div className='cta__content'>
-					<h2>
-						Ready to Take
-						<br />
-						the Next Step?
-					</h2>
+					<div className='cta__text'>
+						<h2>
+							Ready to Take
+							<br />
+							the Next Step?
+						</h2>
 
-					<p>Schedule a 1-on-1 consultation session with our experts.</p>
+						<p>
+							Schedule a 1-on-1 consultation
+							<br />
+							session with our experts.
+						</p>
+					</div>
 
-					<Button onClick={() => setIsConsultationOpen(true)}>BOOK A CONSULTATION</Button>
+					<Button size='medium' variant='light' onClick={() => setIsConsultationOpen(true)}>
+						BOOK A CONSULTATION
+					</Button>
 				</div>
 			</motion.section>
 

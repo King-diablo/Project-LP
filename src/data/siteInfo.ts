@@ -175,6 +175,29 @@ export const testimonials = [
 		name: 'Zainab Bello',
 		role: 'Master of Business Administration',
 	},
+
+	// added below to make the carousel scrollable
+
+	{
+		quote: "Mon E'clat Consult made my UK study dreams a reality. They found a top university that matched my exact budget and guided me through the entire visa process. My visa was approved in under 3 weeks!",
+		name: 'Adeleke',
+		role: 'BSc Computer Science (United Kingdom)',
+	},
+	{
+		quote: "I was overwhelmed by university requirements until I booked a consultation with Mon E'clat. They helped me secure admission into a Canadian university along with a partial scholarship. Truly stress-free experience!",
+		name: 'Chisom Okafor',
+		role: 'BSc Computer Science (Canada)',
+	},
+	{
+		quote: "Transitioning to an overseas work permit was seamless. Mon E'clat handled my visa documentation flawlessly and kept me updated every single day. Highly professional service!",
+		name: 'Emmanuel Kwesi',
+		role: 'Skilled Work Permit & Relocation (United Kingdom)',
+	},
+	{
+		quote: "Getting my MBA abroad involved endless questions and interview preparation. Mon E'clat made the entire process much easier.",
+		name: 'Zainab Bello',
+		role: 'Master of Business Administration',
+	},
 ];
 
 export const faqs = [

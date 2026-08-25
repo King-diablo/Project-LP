@@ -9,10 +9,11 @@ export function Stats() {
 				<div className='stat' key={stat.label}>
 					<img src={stat.icon} alt='' className='stat__icon' />
 
-					<div className='stat__content'>
-						<strong>{stat.value}</strong>
-						<span>{stat.label}</span>
-					</div>
+					{/* <strong className='stat__value'>{stat.value}</strong> */}
+
+					<span className='stat__label'>
+						{stat.value} {stat.label}
+					</span>
 				</div>
 			))}
 		</div>

@@ -13,13 +13,13 @@ export function ServiceCard({ url, title, description }: Props) {
 		<motion.article
 			className='service-card'
 			whileHover={{
-				y: -6,
+				y: -4,
 			}}
 			transition={{
 				duration: 0.2,
 			}}
 		>
-			<motion.img className='service-card__icon' src={url} />
+			<img className='service-card__icon' src={url} alt='' aria-hidden='true' />
 
 			<h3>{title}</h3>
 

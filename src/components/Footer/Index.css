@@ -111,8 +111,8 @@
 	border: 0;
 	border-radius: var(--radius-pill, 999px);
 
-	background: var(--gold, #e5a129);
-	color: var(--black, #000000);
+	background: var(--mute, #292928);
+	color: var(--black, #faf7f7);
 
 	font-size: 14px;
 	font-weight: 700;
@@ -125,7 +125,7 @@
 }
 
 .footer__subscribe button:hover {
-	background: #f0b13b;
+	background: #7a7a79;
 	transform: translateY(-1px);
 }
 

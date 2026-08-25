@@ -2,15 +2,15 @@
 	display: flex;
 	flex-direction: column;
 
-	height: 100%;
+	width: 100%;
 	min-height: 390px;
 
 	padding: 32px;
 
-	background: var(--white, #ffffff);
+	background: #fff;
 
 	border: 1px solid rgba(0, 0, 0, 0.08);
-	border-radius: var(--radius-card, 6px);
+	border-radius: 6px;
 
 	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
 
@@ -43,10 +43,14 @@
 
 	background: rgba(229, 161, 41, 0.12);
 
-	font-size: 28px;
-	line-height: 1;
+	color: #e5a129;
+}
 
-	color: var(--gold, #e5a129);
+.pathway-card__icon img {
+	width: 30px;
+	height: 30px;
+
+	object-fit: contain;
 }
 
 /* ========================================
@@ -56,11 +60,11 @@
 .pathway-card h3 {
 	margin: 0 0 6px;
 
-	font-size: 23px;
-	font-weight: 700;
+	font-size: 30px;
+	font-weight: 900;
 	line-height: 1.25;
 
-	color: var(--text, #111111);
+	color: #111;
 }
 
 /* ========================================
@@ -71,10 +75,10 @@
 	margin: 0 0 16px;
 
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: 800;
 	line-height: 1.5;
 
-	color: var(--gold, #e5a129);
+	color: #110b01;
 }
 
 /* ========================================
@@ -85,13 +89,14 @@
 	margin: 0 0 20px;
 
 	font-size: 15px;
+	font-weight: 800;
 	line-height: 1.7;
 
-	color: var(--muted, #6b6b6b);
+	color: #000000;
 }
 
 /* ========================================
-   LIST
+   FEATURES
 ======================================== */
 
 .pathway-card ul {
@@ -112,16 +117,18 @@
 
 	padding-left: 22px;
 
-	font-size: 14px;
+	font-size: 15px;
+	font-weight: 800;
 	line-height: 1.5;
 
-	color: var(--text, #111111);
+	color: #111;
 }
 
 .pathway-card li::before {
 	content: '';
 
 	position: absolute;
+
 	top: 0.55em;
 	left: 0;
 
@@ -130,9 +137,20 @@
 
 	border-radius: 50%;
 
-	background: var(--gold, #e5a129);
+	background: #000000;
 
 	transform: translateY(-50%);
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+	.pathway-card {
+		min-height: 360px;
+		padding: 28px;
+	}
 }
 
 /* ========================================
@@ -150,8 +168,11 @@
 		height: 52px;
 
 		margin-bottom: 20px;
+	}
 
-		font-size: 24px;
+	.pathway-card__icon img {
+		width: 27px;
+		height: 27px;
 	}
 
 	.pathway-card h3 {
@@ -164,5 +185,10 @@
 
 	.pathway-card > p {
 		font-size: 14px;
+		line-height: 1.65;
+	}
+
+	.pathway-card li {
+		font-size: 13px;
 	}
 }

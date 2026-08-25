@@ -7,7 +7,7 @@ import './Index.css';
 const fadeIn = {
 	hidden: {
 		opacity: 0,
-		y: 20,
+		y: 24,
 	},
 	visible: {
 		opacity: 1,
@@ -27,7 +27,7 @@ export function WhyUs() {
 					whileInView='visible'
 					viewport={{
 						once: true,
-						amount: 0.2,
+						amount: 0.25,
 					}}
 					variants={{
 						hidden: {},
@@ -38,15 +38,22 @@ export function WhyUs() {
 						},
 					}}
 				>
-					<motion.div className='why-us__heading' variants={fadeIn} transition={{ duration: 0.6 }}>
+					<motion.div
+						className='why-us__heading'
+						variants={fadeIn}
+						transition={{
+							duration: 0.6,
+							ease: 'easeOut',
+						}}
+					>
 						<span>WHY US?</span>
 					</motion.div>
 
 					<div className='why-us__grid'>
 						{whyUs.map((item) => (
 							<motion.article
-								className='why-us__card'
 								key={item.title}
+								className='why-us__card'
 								variants={fadeIn}
 								transition={{
 									duration: 0.6,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, Plane, X } from 'lucide-react';
 
 import { Button } from '../Button/Index';
 import { navLinks } from '../../data/siteInfo';
@@ -19,7 +19,7 @@ export function Navbar() {
 
 	return (
 		<header className='navbar'>
-			<a href='/' className='navbar__logo' onClick={closeMenu} aria-label='Mon Eclat Consult Home'>
+			<a href='/' className='navbar__logo' onClick={closeMenu} aria-label="Mon E'clat Consult Home">
 				<strong>MON</strong>
 
 				<span>
@@ -30,8 +30,9 @@ export function Navbar() {
 			</a>
 
 			<nav className='navbar__links' aria-label='Main navigation'>
-				{navLinks.map((link) => (
+				{navLinks.map((link, index) => (
 					<a key={link.href} href={link.href}>
+						{index === 0 && <Plane size={17} strokeWidth={2.5} />}
 						{link.label}
 					</a>
 				))}
@@ -42,7 +43,7 @@ export function Navbar() {
 			</div>
 
 			<button type='button' className='navbar__menu' aria-label={isMenuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={isMenuOpen} aria-controls='mobile-navigation' onClick={toggleMenu}>
-				{isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+				{isMenuOpen ? <X size={25} /> : <Menu size={25} />}
 			</button>
 
 			<nav id='mobile-navigation' className={`navbar__mobile ${isMenuOpen ? 'navbar__mobile--open' : ''}`} aria-label='Mobile navigation'>

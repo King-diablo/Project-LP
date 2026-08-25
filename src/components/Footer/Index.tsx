@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 
 import './Index.css';
+import { Button } from '../Button/Index';
 
 const socialsIco = [
 	{
@@ -36,7 +37,11 @@ export function Footer() {
 						<form className='footer__subscribe'>
 							<input type='email' placeholder='you@email.com' />
 
-							<button type='submit'>Join</button>
+							{/* <button type='submit'>Join</button>
+							 */}
+							<Button size='medium' variant='light' onClick={() => null}>
+								Join
+							</Button>
 						</form>
 					</div>
 

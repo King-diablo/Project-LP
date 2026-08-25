@@ -1,23 +1,26 @@
 .testimonials {
-	padding: 100px 0;
+	overflow: hidden;
+	padding: 110px 0;
+
+	background: var(--background, #ffffff);
 }
 
 .testimonials .section-heading {
 	max-width: 650px;
-	margin: 0 auto 50px;
-	text-align: center;
+	margin: 0 0 50px;
+	text-align: left;
 }
 
 .testimonials .section-heading span {
 	display: block;
 	margin-bottom: 8px;
 
-	font-size: 12px;
-	font-weight: 700;
+	font-size: 30px;
+	font-weight: 900;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 
-	color: var(--gold, #e5a129);
+	color: var(--muted, #5f5f5f);
 }
 
 .testimonials .section-heading h2 {
@@ -30,55 +33,175 @@
 }
 
 .testimonials .section-heading p {
+	max-width: 620px;
 	margin: 0;
 
-	font-size: 15px;
+	font-size: 20px;
 	line-height: 1.7;
+	font-weight: 900;
 
-	color: var(--muted, #6b6b6b);
+
+	color: var(--text, #6b6b6b);
 }
 
-/* DESKTOP */
+/* ========================================
+   MARQUEE
+======================================== */
 
-.testimonial-carousel {
+.testimonial-marquee {
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+
 	width: 100%;
-	padding: 0 24px;
+}
+
+.testimonial-row {
+	position: relative;
+
+	width: 100%;
+	overflow: hidden;
+}
+
+/*
+Fade the cards at the edges so they
+blend naturally into the page.
+*/
+
+.testimonial-row::before,
+.testimonial-row::after {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	bottom: 0;
+
+	width: clamp(30px, 8vw, 160px);
+
+	content: '';
+	pointer-events: none;
+}
+
+.testimonial-row::before {
+	left: 0;
+
+	background: linear-gradient(
+		to right,
+		var(--background, #ffffff),
+		transparent
+	);
+}
+
+.testimonial-row::after {
+	right: 0;
+
+	background: linear-gradient(
+		to left,
+		var(--background, #ffffff),
+		transparent
+	);
 }
 
 .testimonial-track {
-	display: grid;
+	display: flex;
 
-	grid-template-columns: repeat(3, minmax(0, 1fr));
+	width: max-content;
 
-	gap: 20px;
+	gap: 22px;
 
-	max-width: 1200px;
-
-	margin: 0 auto;
+	will-change: transform;
 }
+
+/* LEFT → RIGHT */
+
+.testimonial-row--right .testimonial-track {
+	animation: scroll-right 18s linear infinite;
+}
+
+/* RIGHT → LEFT */
+
+.testimonial-row--left .testimonial-track {
+	animation: scroll-left 18s linear infinite;
+}
+
+/* Pause when inspecting a testimonial */
+
+.testimonial-row:hover .testimonial-track {
+	animation-play-state: paused;
+}
+
+/* ========================================
+   CARD WIDTH
+======================================== */
 
 .testimonial-slide {
-	min-width: 0;
+	flex: 0 0 auto;
+
+	width: min(390px, calc(100vw - 48px));
 }
 
-/* TABLET */
+/* ========================================
+   ANIMATIONS
+======================================== */
 
-@media (max-width: 900px) {
-	.testimonial-track {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+@keyframes scroll-left {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
 	}
 }
 
-/* MOBILE */
+@keyframes scroll-right {
+	from {
+		transform: translateX(-50%);
+	}
 
-@media (max-width: 600px) {
+	to {
+		transform: translateX(0);
+	}
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+	.testimonials {
+		padding: 90px 0;
+	}
+
+	.testimonials .section-heading {
+		margin-bottom: 50px;
+	}
+
+	.testimonial-marquee {
+		gap: 18px;
+	}
+
+	.testimonial-track {
+		gap: 18px;
+	}
+
+	.testimonial-slide {
+		width: min(350px, calc(100vw - 48px));
+	}
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 200px) {
 	.testimonials {
 		padding: 70px 0;
 	}
 
 	.testimonials .section-heading {
-		margin-bottom: 35px;
+		margin: 0 0 35px;
 		padding: 0 20px;
+		text-align: left;
 	}
 
 	.testimonial-carousel {
@@ -92,5 +215,15 @@
 
 	.testimonial-slide {
 		width: 100%;
+	}
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.testimonial-track {
+		animation-play-state: paused;
 	}
 }

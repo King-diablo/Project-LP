@@ -9,7 +9,7 @@ import './Index.css';
 const fadeUp = {
 	hidden: {
 		opacity: 0,
-		y: 30,
+		y: 24,
 	},
 	visible: {
 		opacity: 1,
@@ -20,7 +20,7 @@ const fadeUp = {
 export function WhatWeDo() {
 	return (
 		<section id='services' className='services'>
-			<div className='container'>
+			<div className='container services__container'>
 				<motion.div
 					className='section-heading'
 					variants={fadeUp}
@@ -35,11 +35,11 @@ export function WhatWeDo() {
 						ease: 'easeOut',
 					}}
 				>
-					<span>What We Do</span>
+					<span>WHAT WE DO</span>
 
-					<h2>Supporting your journey from application to arrival.</h2>
+					<h2>Seamless Support from Application to Arrival</h2>
 
-					<p>From finding the right study destination to visa and travel support, we help you every step of the way.</p>
+					<p>We simplify study abroad. From finding the right program to settling in your new country, we’re with you every step of the way.</p>
 				</motion.div>
 
 				<motion.div
@@ -54,7 +54,7 @@ export function WhatWeDo() {
 						hidden: {},
 						visible: {
 							transition: {
-								staggerChildren: 0.15,
+								staggerChildren: 0.12,
 							},
 						},
 					}}
@@ -62,9 +62,10 @@ export function WhatWeDo() {
 					{services.map((service) => (
 						<motion.div
 							key={service.title}
+							className='services-list__item'
 							variants={fadeUp}
 							transition={{
-								duration: 0.6,
+								duration: 0.5,
 								ease: 'easeOut',
 							}}
 						>
@@ -82,9 +83,8 @@ export function WhatWeDo() {
 					}}
 					variants={fadeUp}
 					transition={{
-						duration: 0.7,
+						duration: 0.6,
 						ease: 'easeOut',
-						delay: 0.1,
 					}}
 				>
 					<Stats />
