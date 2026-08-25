@@ -45,7 +45,7 @@
 	font-weight: 900;
 	line-height: 1.4;
 
-	color: var(#111);
+	color: var(--text, #111);
 }
 
 /* Tablet */
