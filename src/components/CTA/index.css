@@ -6,30 +6,26 @@
 	position: relative;
 
 	width: 100%;
-	min-height: 800px;
+	min-height: clamp(420px, 46vw, 600px);
 
-	/* margin: 0 24px; */
+	display: flex;
+	align-items: stretch;
 
-	border-radius: 16px;
 	overflow: hidden;
 
 	background-image: url('/Pics/0003.png');
-	background-position: center;
 	background-size: cover;
+	background-position: center;
 	background-repeat: no-repeat;
-
-	display: flex;
-	align-items: normal;
 }
 
-/* Dark overlay matching the reference */
-.cta::before {
-	content: '';
+/* Dark overlay */
 
+.cta__overlay {
 	position: absolute;
 	inset: 0;
 
-	background: rgba(5, 18, 24, 0.34);
+	background: rgba(5, 18, 24, 0.32);
 
 	pointer-events: none;
 }
@@ -43,29 +39,43 @@
 	z-index: 1;
 
 	width: 100%;
+	max-width: 1600px;
+
+	margin: 0 auto;
 
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
+	gap: 40px;
 
-	padding: 0 13.5% 72px;
+	padding:
+		clamp(40px, 6vw, 90px)
+		clamp(24px, 13.5vw, 220px)
+		clamp(40px, 5vw, 72px);
 }
 
+/* ========================================
+   TEXT
+======================================== */
+
 .cta__text {
+	max-width: 650px;
+
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 }
 
 .cta__text h2 {
-	margin: 0 0 28px;
+	margin: 0 0 clamp(16px, 2vw, 28px);
 
-	color: var(--white, #fff);
+	color: #fff;
 
-	font-size: 50px;
+	font-size: clamp(38px, 4vw, 50px);
 	font-weight: 900;
 	line-height: 1.08;
-	letter-spacing: -0.025em;
+
+	letter-spacing: -0.03em;
 }
 
 .cta__text p {
@@ -73,51 +83,35 @@
 
 	color: rgba(255, 255, 255, 0.94);
 
-	font-size: 26px;
+	font-size: clamp(17px, 2vw, 26px);
 	font-weight: 700;
 	line-height: 1.35;
 }
 
 /* ========================================
-   BUTTON
+   ACTION
 ======================================== */
 
-.cta__button {
+.cta__action {
 	flex-shrink: 0;
 
-	min-width: 205px;
-	height: 56px;
-
-	padding: 0 26px;
-
-	border: 0;
-	border-radius: 999px;
-
-	background: #fff;
-	color: #111;
-
-	font-size: 12px;
-	font-weight: 500;
-	letter-spacing: 0;
-
-	display: inline-flex;
+	display: flex;
 	align-items: center;
-	justify-content: center;
-
-	cursor: pointer;
-
-	transition:
-		transform 0.2s ease,
-		background-color 0.2s ease;
+	justify-content: flex-end;
 }
 
-.cta__button:hover {
-	transform: translateY(-2px);
-	background: #f2f2f2;
-}
+/*
+	If your Button component renders a button,
+	this targets it without needing className support.
+*/
 
-.cta__button:active {
-	transform: translateY(0);
+.cta__action button {
+	min-width: 205px;
+	min-height: 56px;
+
+	padding: 0 28px;
+
+	border-radius: 999px;
 }
 
 /* ========================================
@@ -126,27 +120,26 @@
 
 @media (max-width: 900px) {
 	.cta {
-		width: calc(100% - 32px);
-		margin: 0 16px;
+		min-height: 480px;
 
-		min-height: 340px;
+		background-position: center;
 	}
 
 	.cta__content {
-		padding: 0 8% 56px;
+		padding:
+			60px
+			clamp(32px, 8vw, 72px)
+			56px;
+
+		gap: 32px;
 	}
 
 	.cta__text h2 {
-		font-size: 28px;
+		font-size: clamp(36px, 5vw, 46px);
 	}
 
 	.cta__text p {
-		font-size: 15px;
-	}
-
-	.cta__button {
-		min-width: 190px;
-		height: 52px;
+		font-size: clamp(16px, 2.5vw, 21px);
 	}
 }
 
@@ -154,14 +147,9 @@
    MOBILE
 ======================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 	.cta {
-		width: calc(100% - 24px);
-		min-height: 420px;
-
-		margin: 0 12px;
-
-		border-radius: 14px;
+		min-height: 520px;
 
 		background-position: center;
 	}
@@ -171,29 +159,43 @@
 		align-items: flex-start;
 		justify-content: flex-end;
 
-		padding: 0 28px 32px;
+		gap: 28px;
+
+		padding: 48px 24px 36px;
+	}
+
+	.cta__text {
+		width: 100%;
+		max-width: 500px;
 	}
 
 	.cta__text h2 {
-		margin-bottom: 18px;
+		margin-bottom: 16px;
 
-		font-size: 27px;
-		line-height: 1.08;
+		font-size: clamp(34px, 9vw, 46px);
+		line-height: 1.05;
 	}
 
 	.cta__text p {
-		font-size: 14px;
+		font-size: clamp(16px, 4vw, 20px);
 		line-height: 1.4;
 	}
 
-	.cta__button {
-		width: auto;
-		min-width: 190px;
+	.cta__action {
+		width: 100%;
 
-		height: 48px;
-		margin-top: 28px;
+		justify-content: flex-start;
+	}
 
-		font-size: 11px;
+	.cta__action button {
+		width: 100%;
+		max-width: 280px;
+
+		min-height: 54px;
+	}
+
+	.desktop-break {
+		display: none;
 	}
 }
 
@@ -203,24 +205,24 @@
 
 @media (max-width: 400px) {
 	.cta {
-		min-height: 390px;
+		min-height: 480px;
 	}
 
 	.cta__content {
-		padding: 0 22px 28px;
+		padding: 40px 20px 28px;
 	}
 
 	.cta__text h2 {
-		font-size: 25px;
+		font-size: 32px;
 	}
 
 	.cta__text p {
-		font-size: 13px;
+		font-size: 15px;
 	}
 
-	.cta__button {
-		min-width: 180px;
-		height: 46px;
+	.cta__action button {
+		max-width: none;
+		width: 100%;
 	}
 }
 
@@ -229,11 +231,7 @@
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-	.cta__button {
+	.cta {
 		transition: none;
-	}
-
-	.cta__button:hover {
-		transform: none;
 	}
 }

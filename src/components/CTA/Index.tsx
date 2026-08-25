@@ -18,13 +18,15 @@ export function CTA() {
 				whileInView={{ opacity: 1 }}
 				viewport={{
 					once: true,
-					amount: 0.25,
+					amount: 0.2,
 				}}
 				transition={{
 					duration: 0.7,
 					ease: 'easeOut',
 				}}
 			>
+				<div className='cta__overlay' />
+
 				<div className='cta__content'>
 					<div className='cta__text'>
 						<h2>
@@ -35,14 +37,16 @@ export function CTA() {
 
 						<p>
 							Schedule a 1-on-1 consultation
-							<br />
+							<br className='desktop-break' />
 							session with our experts.
 						</p>
 					</div>
 
-					<Button size='medium' variant='light' onClick={() => setIsConsultationOpen(true)}>
-						BOOK A CONSULTATION
-					</Button>
+					<div className='cta__action'>
+						<Button size='medium' variant='light' onClick={() => setIsConsultationOpen(true)}>
+							BOOK A CONSULTATION
+						</Button>
+					</div>
 				</div>
 			</motion.section>
 

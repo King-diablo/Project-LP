@@ -8,6 +8,7 @@
 
 	background: var(--footer, #263a48);
 	color: var(--white, #ffffff);
+
 }
 
 .footer .container {

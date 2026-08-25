@@ -2,7 +2,7 @@
 	position: relative;
 
 	width: 100%;
-	min-height: 990px;
+	min-height: 1000px;
 
 	overflow: hidden;
 
@@ -31,7 +31,7 @@
 /* Keep navbar/content above the overlay */
 .hero > * {
 	position: relative;
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 .hero__content {
