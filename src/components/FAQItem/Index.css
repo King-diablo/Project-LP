@@ -7,7 +7,7 @@
 
 	background: transparent;
 
-	border-bottom: 1px solid rgba(17, 17, 17, 0.14);
+	border-bottom: 1px solid rgba(17, 17, 17, 0.16);
 }
 
 .faq-item:last-child {
@@ -22,12 +22,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
 	gap: 24px;
 
 	width: 100%;
-	min-height: 88px;
+	min-height: 86px;
 
-	padding: 28px 0;
+	padding: 24px 0;
 
 	border: 0;
 	background: transparent;
@@ -43,13 +44,13 @@
 }
 
 .faq-item__question:hover {
-	opacity: 0.65;
+	opacity: 0.7;
 }
 
 .faq-item__title {
-	font-size: clamp(15px, 1.5vw, 20px);
+	font-size: clamp(16px, 1.4vw, 19px);
 	font-weight: 600;
-	line-height: 1.35;
+	line-height: 1.4;
 
 	letter-spacing: -0.02em;
 }
@@ -63,7 +64,7 @@
 	align-items: center;
 	justify-content: center;
 
-	flex: 0 0 32px;
+	flex-shrink: 0;
 
 	width: 32px;
 	height: 32px;
@@ -80,15 +81,15 @@
 }
 
 .faq-item__answer {
-	max-width: 760px;
+	max-width: 780px;
 
-	padding: 0 70px 32px 0;
+	padding: 0 60px 30px 0;
 }
 
 .faq-item__answer p {
 	margin: 0;
 
-	font-size: clamp(14px, 1.3vw, 17px);
+	font-size: clamp(14px, 1.2vw, 16px);
 	font-weight: 400;
 	line-height: 1.65;
 
@@ -96,16 +97,65 @@
 }
 
 /* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 768px) {
+	.faq {
+		padding: 80px 0;
+	}
+
+	.faq__container {
+		max-width: 100%;
+		padding: 0 24px;
+	}
+
+	.faq__heading {
+		margin-bottom: 32px;
+	}
+
+	.faq__list {
+		padding: 0 22px;
+	}
+}
+
+/* ========================================
    MOBILE
 ======================================== */
 
 @media (max-width: 600px) {
+	.faq {
+		padding: 64px 0;
+	}
+
+	.faq__container {
+		padding: 0 20px;
+	}
+
+	.faq__heading {
+		margin-bottom: 28px;
+	}
+
+	.faq__heading span {
+		font-size: 14px;
+	}
+
+	.faq__heading h2 {
+		font-size: 32px;
+	}
+
+	.faq__list {
+		padding: 0 18px;
+
+		border-radius: 16px;
+	}
+
 	.faq-item__question {
-		gap: 16px;
+		gap: 14px;
 
 		min-height: 72px;
 
-		padding: 22px 0;
+		padding: 20px 0;
 	}
 
 	.faq-item__title {
@@ -114,14 +164,12 @@
 	}
 
 	.faq-item__icon {
-		flex-basis: 28px;
-
 		width: 28px;
 		height: 28px;
 	}
 
 	.faq-item__answer {
-		padding: 0 40px 24px 0;
+		padding: 0 36px 24px 0;
 	}
 
 	.faq-item__answer p {

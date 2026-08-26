@@ -1,22 +1,31 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import type { CSSProperties, MouseEventHandler, ReactNode } from 'react';
 
 import './Index.css';
 
 type ButtonProps = {
-	children: React.ReactNode;
+	children: ReactNode;
+
 	href?: string;
+
 	variant?: 'primary' | 'light';
 	size?: 'small' | 'medium' | 'large';
+
 	showArrow?: boolean;
-	onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+
+	onClick?: MouseEventHandler<HTMLAnchorElement>;
+
+	className?: string;
+	style?: CSSProperties;
 };
 
-export function Button({ children, href = '#', variant = 'primary', size = 'medium', showArrow = false, onClick }: ButtonProps) {
+export function Button({ children, href = '#', variant = 'primary', size = 'medium', showArrow = false, onClick, className = '', style }: ButtonProps) {
 	return (
 		<motion.a
 			href={href}
-			className={`button button--${variant} button--${size}`}
+			className={`button button--${variant} button--${size} ${className}`}
+			style={style}
 			onClick={onClick}
 			whileHover={{
 				y: -2,

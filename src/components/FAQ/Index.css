@@ -4,18 +4,17 @@
 
 .faq {
 	width: 100%;
-	padding: 90px 0;
+	padding: 110px 0;
 
 	background: var(--white, #fff);
 }
 
 .faq__container {
 	width: 100%;
-	max-width: none;
+	max-width: 1120px;
 
-	margin: 0;
-	padding: 0 clamp(24px, 6vw, 96px);
-
+	margin: 0 auto;
+	padding: 0 24px;
 }
 
 /* ========================================
@@ -41,7 +40,7 @@
 .faq__heading h2 {
 	margin: 0;
 
-	font-size: clamp(38px, 3vw, 44px);
+	font-size: clamp(38px, 3vw, 48px);
 	font-weight: 900;
 	line-height: 1.05;
 	letter-spacing: -0.04em;
@@ -55,58 +54,13 @@
 
 .faq__list {
 	width: 100%;
-	max-width: none;
 
 	margin: 0;
 
-	border: 1px solid black;
+	padding: 0 28px;
+
+	border: 1px solid #111;
 	border-radius: 20px;
 
-	padding: 20px;
-
 	overflow: hidden;
-}
-
-/* ========================================
-   TABLET
-======================================== */
-
-@media (max-width: 768px) {
-	.faq {
-		padding: 70px 0;
-	}
-
-	.faq__container {
-		padding: 0 24px;
-	}
-
-	.faq__heading {
-		margin-bottom: 32px;
-	}
-}
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 600px) {
-	.faq {
-		padding: 56px 0;
-	}
-
-	.faq__container {
-		padding: 0 20px;
-	}
-
-	.faq__heading {
-		margin-bottom: 28px;
-	}
-
-	.faq__heading span {
-		font-size: 11px;
-	}
-
-	.faq__heading h2 {
-		font-size: 30px;
-	}
 }

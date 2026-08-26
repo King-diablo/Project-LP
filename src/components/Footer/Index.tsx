@@ -5,20 +5,19 @@ import { Button } from '../Button/Index';
 
 const socialsIco = [
 	{
-		name: 'Linkedin',
-		ico: '/Socials/Linkedin.svg',
+		name: 'Mail',
+		ico: '/Socials/gmail.svg',
+		url: 'mailto:contactmoneclat@gmail.com',
 	},
 	{
 		name: 'Instagram',
 		ico: '/Socials/Instagram.svg',
+		url: 'https://www.instagram.com/themoneclat?igsh=MWJvb2VienBhZzUxYw%3D%3D&utm_source=qr',
 	},
 	{
-		name: 'X',
-		ico: '/Socials/x.svg',
-	},
-	{
-		name: 'Facebook',
-		ico: '/Socials/facebook.svg',
+		name: 'Whatsapp',
+		ico: '/Socials/whatsapp.svg',
+		url: 'https://wa.link/8g8au0',
 	},
 ];
 
@@ -36,10 +35,17 @@ export function Footer() {
 
 						<form className='footer__subscribe'>
 							<input type='email' placeholder='you@email.com' />
-
-							{/* <button type='submit'>Join</button>
-							 */}
-							<Button size='medium' variant='light' onClick={() => null}>
+							<Button
+								size='medium'
+								variant='light'
+								onClick={() => null}
+								style={{
+									borderRadius: '999px',
+									border: '2px solid #000',
+									backgroundColor: '#263a48',
+									color: '#fff',
+								}}
+							>
 								Join
 							</Button>
 						</form>
@@ -59,7 +65,7 @@ export function Footer() {
 
 					<div className='footer__socials'>
 						{socialsIco.map((social) => (
-							<a href='#' key={social.name}>
+							<a href={social.url} key={social.name}>
 								<motion.img src={social.ico} alt={`${social.name} icon`} />
 							</a>
 						))}
