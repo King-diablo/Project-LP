@@ -11,17 +11,24 @@ type Props = {
 };
 
 export function FAQItem({ question, answer, open, onToggle }: Props) {
+	const itemId = question.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
 	return (
 		<div className={`faq-item ${open ? 'faq-item--open' : ''}`}>
-			<button type='button' className='faq-item__question' onClick={onToggle} aria-expanded={open}>
+			<button type='button' id={`faq-btn-${itemId}`} className='faq-item__question' onClick={onToggle} aria-expanded={open} aria-controls={`faq-panel-${itemId}`}>
 				<span className='faq-item__title'>{question}</span>
 
-				<span className='faq-item__icon'>{open ? <Minus size={20} strokeWidth={1.8} /> : <Plus size={20} strokeWidth={1.8} />}</span>
+				<span className='faq-item__icon' aria-hidden='true'>
+					{open ? <Minus size={20} strokeWidth={2} /> : <Plus size={20} strokeWidth={2} />}
+				</span>
 			</button>
 
 			<AnimatePresence initial={false}>
 				{open && (
 					<motion.div
+						id={`faq-panel-${itemId}`}
+						role='region'
+						aria-labelledby={`faq-btn-${itemId}`}
 						className='faq-item__answer-wrapper'
 						initial={{
 							height: 0,
@@ -36,7 +43,7 @@ export function FAQItem({ question, answer, open, onToggle }: Props) {
 							opacity: 0,
 						}}
 						transition={{
-							duration: 0.2,
+							duration: 0.25,
 							ease: 'easeOut',
 						}}
 					>
@@ -49,3 +56,4 @@ export function FAQItem({ question, answer, open, onToggle }: Props) {
 		</div>
 	);
 }
+

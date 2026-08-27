@@ -19,7 +19,7 @@ export function ServiceCard({ url, title, description }: Props) {
 				duration: 0.2,
 			}}
 		>
-			<img className='service-card__icon' src={url} alt='' aria-hidden='true' />
+			<img className='service-card__icon' src={url} alt='' aria-hidden='true' loading='lazy' decoding='async' width={32} height={32} />
 
 			<h3>{title}</h3>
 
@@ -27,3 +27,4 @@ export function ServiceCard({ url, title, description }: Props) {
 		</motion.article>
 	);
 }
+

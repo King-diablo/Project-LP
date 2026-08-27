@@ -98,6 +98,9 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 			{isOpen && (
 				<motion.div
 					className='consultation-modal'
+					role='dialog'
+					aria-modal='true'
+					aria-labelledby='consultation-modal-title'
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
@@ -139,7 +142,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 						<div className='consultation-modal__info'>
 							<span className='consultation-modal__eyebrow'>Contact Us</span>
 
-							<h2>
+							<h2 id='consultation-modal-title'>
 								Ready to Find
 								<br />
 								Your Ideal Study

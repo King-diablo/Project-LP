@@ -1,91 +1,24 @@
-@media (max-width: 900px) {
-	.navbar {
-		width: calc(100% - 30px);
-	}
+/* ========================================================
+   GLOBAL RESPONSIVE UTILITIES & CONTAINER ENHANCEMENTS
+   ======================================================== */
 
-	.navbar__links,
-	.navbar > .button {
-		display: none;
-	}
+/* Standard Breakpoints Guide:
+   - 320px: Small mobile devices
+   - 480px: Mobile landscape / Larger phones
+   - 768px: Tablets
+   - 1024px: Desktops / Laptops
+   - 1440px+: Ultra-wide displays
+*/
 
-	.navbar__menu {
-		display: grid;
-		place-items: center;
-
-		margin-left: auto;
-
-		border: 0;
-
-		background: rgba(40, 56, 69, 0.7);
-
-		color: white;
-
-		padding: 10px;
-
-		border-radius: 50%;
-	}
-
+@media (max-width: 768px) {
 	.container {
-		width: min(calc(100% - 30px), var(--container));
-	}
-
-	.hero {
-		min-height: 700px;
-	}
-
-	.hero__text {
-		width: min(100%, 500px);
-	}
-
-	.service-grid,
-	.pathway-grid {
-		grid-template-columns: 1fr;
-	}
-
-	.destination-grid {
-		grid-template-columns: repeat(2, 1fr);
-
-		gap: 25px;
-	}
-
-	.why-us__grid {
-		grid-template-columns: 1fr;
-	}
-
-	.why-us {
-		padding: 70px 0;
-	}
-
-	.footer__grid {
-		grid-template-columns: 1fr;
-		gap: 40px;
+		width: min(100% - 2rem, var(--container));
 	}
 }
 
-@media (max-width: 600px) {
-	.section {
-		padding: 60px 0;
-	}
-
-	.hero h1 {
-		font-size: 42px;
-	}
-
-	.stats {
-		grid-template-columns: 1fr;
-		gap: 20px;
-	}
-
-	.destination-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.cta {
-		min-height: 380px;
-		padding: 40px 25px;
-	}
-
-	.cta h2 {
-		font-size: 30px;
+@media (max-width: 480px) {
+	.container {
+		width: min(100% - 1.5rem, var(--container));
 	}
 }
+

@@ -1,153 +1,128 @@
+/* =========================================================
+   TESTIMONIALS SECTION & MARQUEE
+   ========================================================= */
+
 .testimonials {
 	overflow: hidden;
-	padding: 110px 0;
+	padding-block: clamp(3.5rem, 7vw, 6rem);
+	background: var(--white, #ffffff);
+}
 
-	background: var(--background, #ffffff);
+.testimonials .container {
+	width: min(100% - clamp(1.5rem, 5vw, 4rem), var(--container, 1240px));
+	margin-inline: auto;
 }
 
 .testimonials .section-heading {
-	max-width: 650px;
-	margin: 0 0 50px;
+	max-width: 42rem;
+	margin-bottom: clamp(2rem, 4vw, 3.5rem);
 	text-align: left;
 }
 
 .testimonials .section-heading span {
 	display: block;
-	margin-bottom: 8px;
-
-	font-size: 30px;
-	font-weight: 900;
+	margin-bottom: 0.5rem;
+	font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+	font-weight: 800;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-
-	color: var(--muted, #5f5f5f);
+	color: var(--gold-accent, #b76524);
 }
 
 .testimonials .section-heading h2 {
-	margin: 0 0 16px;
-
-	font-size: clamp(32px, 4vw, 48px);
-	line-height: 1.1;
-
-	color: var(--text, #111);
+	margin: 0 0 0.75rem;
+	font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -0.03em;
+	color: var(--text, #111111);
 }
 
 .testimonials .section-heading p {
-	max-width: 620px;
+	max-width: 38rem;
 	margin: 0;
-
-	font-size: 20px;
-	line-height: 1.7;
-	font-weight: 900;
-
-
-	color: var(--text, #6b6b6b);
+	font-size: clamp(0.95rem, 1.4vw, 1.125rem);
+	font-weight: 500;
+	line-height: 1.6;
+	color: var(--muted, #555555);
 }
 
-/* ========================================
-   MARQUEE
-======================================== */
+/* =========================================================
+   MARQUEE TRACKS
+   ========================================================= */
 
 .testimonial-marquee {
 	display: flex;
 	flex-direction: column;
-	gap: 22px;
-
+	gap: clamp(1rem, 2vw, 1.5rem);
 	width: 100%;
 }
 
 .testimonial-row {
 	position: relative;
-
 	width: 100%;
 	overflow: hidden;
 }
 
-/*
-Fade the cards at the edges so they
-blend naturally into the page.
-*/
-
+/* Edge Fades */
 .testimonial-row::before,
 .testimonial-row::after {
 	position: absolute;
 	z-index: 2;
 	top: 0;
 	bottom: 0;
-
-	width: clamp(30px, 8vw, 160px);
-
+	width: clamp(2rem, 8vw, 8rem);
 	content: '';
 	pointer-events: none;
 }
 
 .testimonial-row::before {
 	left: 0;
-
-	background: linear-gradient(
-		to right,
-		var(--background, #ffffff),
-		transparent
-	);
+	background: linear-gradient(to right, var(--white, #ffffff), transparent);
 }
 
 .testimonial-row::after {
 	right: 0;
-
-	background: linear-gradient(
-		to left,
-		var(--background, #ffffff),
-		transparent
-	);
+	background: linear-gradient(to left, var(--white, #ffffff), transparent);
 }
 
 .testimonial-track {
 	display: flex;
-
 	width: max-content;
-
-	gap: 22px;
-
+	gap: clamp(1rem, 2vw, 1.5rem);
 	will-change: transform;
 }
 
-/* LEFT → RIGHT */
-
+/* Left -> Right track animation */
 .testimonial-row--right .testimonial-track {
-	animation: scroll-right 18s linear infinite;
+	animation: scroll-right 28s linear infinite;
 }
 
-/* RIGHT → LEFT */
-
+/* Right -> Left track animation */
 .testimonial-row--left .testimonial-track {
-	animation: scroll-left 18s linear infinite;
+	animation: scroll-left 28s linear infinite;
 }
 
-/* Pause when inspecting a testimonial */
-
-.testimonial-row:hover .testimonial-track {
+/* Pause on hover and focus */
+.testimonial-row:hover .testimonial-track,
+.testimonial-row:focus-within .testimonial-track {
 	animation-play-state: paused;
 }
 
-/* ========================================
-   CARD WIDTH
-======================================== */
-
+/* Slide Width */
 .testimonial-slide {
 	flex: 0 0 auto;
-
-	width: min(390px, calc(100vw - 48px));
+	width: min(24rem, calc(100vw - 3rem));
 }
 
-/* ========================================
-   ANIMATIONS
-======================================== */
+/* =========================================================
+   KEYFRAME ANIMATIONS
+   ========================================================= */
 
 @keyframes scroll-left {
 	from {
 		transform: translateX(0);
 	}
-
 	to {
 		transform: translateX(-50%);
 	}
@@ -157,73 +132,23 @@ blend naturally into the page.
 	from {
 		transform: translateX(-50%);
 	}
-
 	to {
 		transform: translateX(0);
 	}
 }
 
-/* ========================================
-   TABLET
-======================================== */
-
-@media (max-width: 900px) {
-	.testimonials {
-		padding: 90px 0;
-	}
-
-	.testimonials .section-heading {
-		margin-bottom: 50px;
-	}
-
-	.testimonial-marquee {
-		gap: 18px;
-	}
-
-	.testimonial-track {
-		gap: 18px;
-	}
-
-	.testimonial-slide {
-		width: min(350px, calc(100vw - 48px));
-	}
-}
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 200px) {
-	.testimonials {
-		padding: 70px 0;
-	}
-
-	.testimonials .section-heading {
-		margin: 0 0 35px;
-		padding: 0 20px;
-		text-align: left;
-	}
-
-	.testimonial-carousel {
-		padding: 0 20px;
-	}
-
-	.testimonial-track {
-		grid-template-columns: 1fr;
-		gap: 16px;
-	}
-
-	.testimonial-slide {
-		width: 100%;
-	}
-}
-
-/* ========================================
-   ACCESSIBILITY
-======================================== */
+/* =========================================================
+   ACCESSIBILITY & REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 	.testimonial-track {
-		animation-play-state: paused;
+		animation: none !important;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
 	}
-}
+
+	.testimonial-slide {
+		scroll-snap-align: start;
+	}
+}

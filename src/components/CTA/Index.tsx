@@ -40,15 +40,18 @@ export function CTA() {
 							the Next Step?
 						</h2>
 
-						<p>
-							Schedule a 1-on-1 consultation
-							<br className='desktop-break' />
-							session with our experts.
-						</p>
+						<p>Schedule a 1-on-1 consultation session with our experts.</p>
 					</div>
 
 					<div className='cta__action'>
-						<Button size='medium' variant='light' onClick={() => setIsConsultationOpen(true)}>
+						<Button
+							size='large'
+							variant='light'
+							onClick={(e) => {
+								e.preventDefault();
+								setIsConsultationOpen(true);
+							}}
+						>
 							BOOK A CONSULTATION
 						</Button>
 					</div>
@@ -59,3 +62,4 @@ export function CTA() {
 		</>
 	);
 }
+

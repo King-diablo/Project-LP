@@ -1,66 +1,53 @@
-/* ========================================
+/* =========================================================
    FAQ SECTION
-======================================== */
+   ========================================================= */
 
 .faq {
 	width: 100%;
-	padding: 110px 0;
-
-	background: var(--white, #fff);
+	padding-block: clamp(3.5rem, 7vw, 6rem);
+	background: var(--white, #ffffff);
 }
 
 .faq__container {
-	width: 100%;
-	max-width: 1120px;
-
-	margin: 0 auto;
-	padding: 0 24px;
+	width: min(100% - clamp(1.5rem, 5vw, 4rem), 68rem);
+	margin-inline: auto;
 }
 
-/* ========================================
+/* =========================================================
    HEADING
-======================================== */
+   ========================================================= */
 
 .faq__heading {
-	margin-bottom: 42px;
+	margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .faq__heading span {
 	display: block;
-
-	margin-bottom: 4px;
-
-	font-size: 20px;
-	font-weight: 900;
+	margin-bottom: 0.25rem;
+	font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+	font-weight: 800;
 	line-height: 1.2;
-
 	color: var(--muted, #6b6b6b);
 }
 
 .faq__heading h2 {
 	margin: 0;
-
-	font-size: clamp(38px, 3vw, 48px);
-	font-weight: 900;
-	line-height: 1.05;
-	letter-spacing: -0.04em;
-
-	color: var(--text, #111);
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: -0.035em;
+	color: var(--text, #111111);
 }
 
-/* ========================================
-   FAQ LIST
-======================================== */
+/* =========================================================
+   FAQ LIST CONTAINER
+   ========================================================= */
 
 .faq__list {
 	width: 100%;
-
 	margin: 0;
-
-	padding: 0 28px;
-
-	border: 1px solid #111;
-	border-radius: 20px;
-
+	padding-inline: clamp(1rem, 3vw, 2rem);
+	border: 1px solid rgba(17, 17, 17, 0.85);
+	border-radius: 1.25rem;
 	overflow: hidden;
-}
+}

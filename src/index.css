@@ -1,34 +1,59 @@
 :root {
+	/* Colors */
 	--white: #ffffff;
 	--black: #000000;
 	--text: #111111;
+	--text-light: #222222;
 	--muted: #6b6b6b;
-
-	--gray-section: #f3f3f3;
-
+	--muted-light: #888888;
+	--primary: #1f3034;
+	--primary-hover: #2b4045;
 	--gold: #e5a129;
-
+	--gold-hover: #ffb82c;
+	--gold-accent: #b76524;
+	--gold-accent-hover: #a65b20;
+	--gray-section: #f5f5f5;
+	--gray-card: #f3f3f3;
+	--border-light: rgba(0, 0, 0, 0.08);
+	--border-subtle: rgba(255, 255, 255, 0.12);
 	--footer: #263a48;
+	--hero-overlay: rgba(0, 0, 0, 0.45);
 
-	--radius-section: 45px;
-	--radius-card: 6px;
+	/* Sizing & Layout */
+	--container: 1240px;
+	--radius-section: clamp(1rem, 3vw, 2.8rem);
+	--radius-card: 0.5rem;
+	--radius-pill: 9999px;
 
-	--container: 1140px;
+	/* Transitions */
+	--ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+	--transition-fast: 0.2s ease;
+	--transition-smooth: 0.3s var(--ease-standard);
 }
 
-* {
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 }
 
 html {
 	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 body {
 	margin: 0;
+	padding: 0;
 	background: var(--white);
 	color: var(--text);
-	font-family: Inter, Arial, sans-serif;
+	font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	font-size: 1rem;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
 }
 
 a {
@@ -37,26 +62,64 @@ a {
 }
 
 button,
-input {
+input,
+select,
+textarea {
 	font: inherit;
 }
 
-img {
+img,
+svg,
+picture {
 	max-width: 100%;
+	height: auto;
 	display: block;
 }
 
+/* Fluid responsive container */
 .container {
-	width: min(calc(100% - 100px), var(--container));
-
+	width: min(100% - clamp(1.5rem, 5vw, 4rem), var(--container));
 	margin-inline: auto;
 }
 
+/* Responsive vertical section rhythm */
 .section {
-	padding: 90px 0;
+	padding-block: clamp(3.5rem, 7vw, 6.5rem);
 }
 
 .section--gray {
 	background: var(--gray-section);
 	border-radius: var(--radius-section);
 }
+
+/* Accessibility Focus Ring */
+:focus-visible {
+	outline: 2px solid var(--gold);
+	outline-offset: 3px;
+}
+
+/* Accessible Screen Reader Only utility */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Reduced Motion preference */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+

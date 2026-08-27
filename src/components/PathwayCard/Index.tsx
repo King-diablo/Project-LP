@@ -17,10 +17,12 @@ export function PathwayCard({ url, title, subtitle, description, items }: Props)
 			whileHover={{
 				y: -5,
 			}}
+			transition={{
+				duration: 0.25,
+			}}
 		>
 			<div className='pathway-card__icon'>
-				{/* {icon} */}
-				<motion.img src={url} alt={`${title} icon`} />
+				<img src={url} alt='' aria-hidden='true' loading='lazy' decoding='async' width={30} height={30} />
 			</div>
 
 			<h3>{title}</h3>
@@ -37,3 +39,4 @@ export function PathwayCard({ url, title, subtitle, description, items }: Props)
 		</motion.article>
 	);
 }
+

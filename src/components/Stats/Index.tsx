@@ -7,15 +7,15 @@ export function Stats() {
 		<div className='stats'>
 			{stats.map((stat) => (
 				<div className='stat' key={stat.label}>
-					<img src={stat.icon} alt='' className='stat__icon' />
-
-					{/* <strong className='stat__value'>{stat.value}</strong> */}
+					<img src={stat.icon} alt='' aria-hidden='true' className='stat__icon' loading='lazy' decoding='async' width={42} height={42} />
 
 					<span className='stat__label'>
-						{stat.value} {stat.label}
+						<strong className='stat__value'>{stat.value}</strong>
+						<span className='stat__text'>{stat.label}</span>
 					</span>
 				</div>
 			))}
 		</div>
 	);
 }
+

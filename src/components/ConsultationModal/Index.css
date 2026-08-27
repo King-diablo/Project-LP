@@ -1,5 +1,5 @@
 /* =========================================================
-   CONSULTATION MODAL
+   CONSULTATION MODAL COMPONENT
    ========================================================= */
 
 .consultation-modal {
@@ -10,10 +10,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: clamp(0.75rem, 3vw, 1.75rem);
 
-	padding: 24px;
-
-	background: rgba(0, 0, 0, 0.72);
+	background: rgba(0, 0, 0, 0.75);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
 }
 
 /* =========================================================
@@ -22,21 +23,25 @@
 
 .consultation-modal__dialog {
 	position: relative;
-
 	display: grid;
-	grid-template-columns: minmax(300px, 0.85fr) minmax(480px, 1.15fr);
+	grid-template-columns: 1fr;
 
-	width: min(100%, 1050px);
-	min-height: 580px;
-	max-height: calc(100vh - 48px);
+	width: min(100%, 65rem);
+	max-height: calc(100dvh - clamp(1.5rem, 4vw, 3rem));
 
-	padding: 36px;
-
+	padding: clamp(1.25rem, 3vw, 2.25rem);
 	background: #f4f4f4;
+	border-radius: clamp(1.25rem, 3vw, 2.25rem);
+	overflow-y: auto;
+	box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
 
-	border-radius: 36px;
-
-	overflow: hidden;
+@media (min-width: 860px) {
+	.consultation-modal__dialog {
+		grid-template-columns: minmax(18rem, 0.85fr) minmax(24rem, 1.15fr);
+		gap: clamp(1.5rem, 3vw, 2.5rem);
+		overflow: hidden;
+	}
 }
 
 /* =========================================================
@@ -45,221 +50,121 @@
 
 .consultation-modal__close {
 	position: absolute;
-	top: 20px;
-	right: 20px;
+	top: 1rem;
+	right: 1rem;
 	z-index: 20;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
-	width: 38px;
-	height: 38px;
-
+	width: 2.5rem;
+	height: 2.5rem;
+	min-width: 44px;
+	min-height: 44px;
 	padding: 0;
 
-	background: #ffffff;
-
+	background: var(--white, #ffffff);
 	border: 1px solid rgba(0, 0, 0, 0.08);
 	border-radius: 50%;
-
-	color: #000000;
-
+	color: var(--black, #000000);
 	cursor: pointer;
 
-	transition:
-		background-color 0.2s ease,
-		color 0.2s ease,
-		transform 0.2s ease,
-		box-shadow 0.2s ease;
+	transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .consultation-modal__close:hover:not(:disabled) {
-	background: #000000;
-	color: #ffffff;
-
+	background: var(--black, #000000);
+	color: var(--white, #ffffff);
 	transform: rotate(90deg);
-
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.consultation-modal__close:focus-visible {
-	outline: 2px solid #b76524;
-	outline-offset: 3px;
-}
-
-.consultation-modal__close:disabled {
-	opacity: 0.45;
-
-	cursor: not-allowed;
 }
 
 /* =========================================================
-   LEFT INFORMATION SECTION
+   LEFT INFO COLUMN
    ========================================================= */
 
 .consultation-modal__info {
 	display: flex;
 	flex-direction: column;
-
-	min-width: 0;
-
-	padding: 20px 28px 24px 0;
-
-	background: #f4f4f4;
-
-	color: #000000;
+	padding: 0.5rem 0 1.5rem;
+	color: var(--black, #000000);
 }
 
-/* =========================================================
-   EYEBROW
-   ========================================================= */
+@media (min-width: 860px) {
+	.consultation-modal__info {
+		padding: 1rem 0.5rem 1rem 0;
+	}
+}
 
 .consultation-modal__eyebrow {
 	display: inline-block;
-
-	margin-bottom: 26px;
-
+	margin-bottom: 1rem;
 	color: #70777a;
-
-	font-size: 18px;
-	font-weight: 600;
-	line-height: 1.3;
+	font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+	font-weight: 700;
 }
-
-/* =========================================================
-   LEFT HEADING
-   ========================================================= */
 
 .consultation-modal__info h2 {
-	max-width: 390px;
-
 	margin: 0;
-
-	color: #000000;
-
-	font-size: clamp(32px, 3.2vw, 46px);
-	font-weight: 700;
-	line-height: 1.08;
-	letter-spacing: -0.035em;
+	font-size: clamp(1.75rem, 3vw, 2.65rem);
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: -0.03em;
+	color: var(--text, #111111);
 }
-
-/* =========================================================
-   LEFT DESCRIPTION
-   ========================================================= */
 
 .consultation-modal__intro {
-	max-width: 390px;
-
-	margin: 28px 0 0;
-
-	color: #111111;
-
-	font-size: 17px;
-	font-weight: 600;
-	line-height: 1.35;
+	margin: 1.25rem 0 0;
+	font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+	font-weight: 500;
+	line-height: 1.5;
+	color: #333333;
 }
-
-/* =========================================================
-   OTHER INFO
-   ========================================================= */
 
 .consultation-modal__other-info {
 	margin-top: auto;
-
-	padding-top: 36px;
+	padding-top: 1.5rem;
 }
 
 .consultation-modal__other-info h3 {
-	margin: 0 0 22px;
-
-	color: #000000;
-
-	font-size: 19px;
+	margin: 0 0 0.875rem;
+	font-size: 1.1rem;
 	font-weight: 700;
-	line-height: 1.3;
+	color: var(--text, #111111);
 }
 
 .consultation-modal__other-info a {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
-	gap: 8px;
-
-	width: fit-content;
-
-	margin-bottom: 10px;
-
-	color: #111111;
-
-	font-size: 13px;
-	font-weight: 400;
-	line-height: 1.5;
-
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #333333;
 	text-decoration: none;
-
-	transition:
-		color 0.2s ease,
-		transform 0.2s ease;
+	transition: color var(--transition-fast);
 }
 
 .consultation-modal__other-info a:hover {
-	color: #b76524;
-
-	transform: translateX(3px);
-}
-
-.consultation-modal__other-info a svg {
-	flex-shrink: 0;
-
-	color: #000000;
-}
-
-.consultation-modal__other-info a:hover svg {
-	color: #b76524;
+	color: var(--gold-accent, #b76524);
 }
 
 /* =========================================================
-   RIGHT FORM CARD
+   RIGHT FORM CONTAINER
    ========================================================= */
 
 .consultation-modal__form-wrapper {
 	display: flex;
 	flex-direction: column;
-
-	min-width: 0;
-	min-height: 0;
-
-	padding: 30px 28px 28px;
-
-	background: #ffffff;
-
-	border-radius: 34px;
-
-	box-shadow:
-		0 14px 30px rgba(0, 0, 0, 0.14),
-		0 4px 10px rgba(0, 0, 0, 0.08);
-
+	padding: clamp(1.25rem, 2.5vw, 1.75rem);
+	background: var(--white, #ffffff);
+	border-radius: clamp(1rem, 2.5vw, 1.75rem);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 	overflow-y: auto;
-
-	scrollbar-width: thin;
-	scrollbar-color: #d0d0d0 transparent;
-}
-
-.consultation-modal__form-wrapper::-webkit-scrollbar {
-	width: 5px;
-}
-
-.consultation-modal__form-wrapper::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-.consultation-modal__form-wrapper::-webkit-scrollbar-thumb {
-	background: #d0d0d0;
-	border-radius: 999px;
 }
 
 /* =========================================================
-   FORM
+   FORM & FIELDS
    ========================================================= */
 
 .consultation-form {
@@ -268,20 +173,20 @@
 
 .consultation-form__grid {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-
-	gap: 20px 20px;
+	grid-template-columns: 1fr;
+	gap: 1rem;
 }
 
-/* =========================================================
-   FORM FIELD
-   ========================================================= */
+@media (min-width: 520px) {
+	.consultation-form__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
 
 .form-field {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-
+	gap: 0.375rem;
 	min-width: 0;
 }
 
@@ -290,116 +195,41 @@
 }
 
 .form-field label {
-	color: #000000;
-
-	font-size: 15px;
+	font-size: 0.875rem;
 	font-weight: 700;
-	line-height: 1.3;
+	color: var(--text, #111111);
 }
-
-/* =========================================================
-   INPUTS / SELECT / TEXTAREA
-   ========================================================= */
 
 .form-field input,
 .form-field select,
 .form-field textarea {
 	width: 100%;
-	box-sizing: border-box;
-
-	padding: 11px 15px;
-
+	padding: 0.625rem 0.875rem;
 	background: #f4f4f4;
-
-	border: 1px solid #f4f4f4;
-	border-radius: 9px;
-
-	color: #222222;
-
-	font-family: inherit;
-	font-size: 13px;
-	font-weight: 400;
-	line-height: 1.5;
-
+	border: 1px solid #e2e2e2;
+	border-radius: 0.5rem;
+	color: var(--text, #111111);
+	font-size: 0.9375rem;
 	outline: none;
-
-	transition:
-		background-color 0.2s ease,
-		border-color 0.2s ease,
-		box-shadow 0.2s ease;
+	transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.form-field input {
-	height: 38px;
-}
-
+.form-field input,
 .form-field select {
-	height: 38px;
+	height: 2.75rem;
 }
 
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-	color: #777f83;
-	opacity: 1;
-}
-
-.form-field input:hover,
-.form-field select:hover,
-.form-field textarea:hover {
-	border-color: #dedede;
+.form-field textarea {
+	min-height: 4.5rem;
+	resize: vertical;
 }
 
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus {
-	background: #ffffff;
-
-	border-color: #b76524;
-
-	box-shadow: 0 0 0 2px rgba(183, 101, 36, 0.12);
-}
-
-.form-field input:disabled,
-.form-field select:disabled,
-.form-field textarea:disabled {
-	opacity: 0.65;
-
-	cursor: not-allowed;
-}
-
-.form-field textarea {
-	min-height: 66px;
-
-	resize: vertical;
-}
-
-/* =========================================================
-   SELECT
-   ========================================================= */
-
-.form-field select {
-	appearance: none;
-	-webkit-appearance: none;
-
-	padding-right: 40px;
-
-	cursor: pointer;
-
-	background-image: linear-gradient(45deg, transparent 50%, #777f83 50%), linear-gradient(135deg, #777f83 50%, transparent 50%);
-
-	background-position:
-		calc(100% - 17px) 50%,
-		calc(100% - 12px) 50%;
-
-	background-size:
-		5px 5px,
-		5px 5px;
-
-	background-repeat: no-repeat;
-}
-
-.form-field select:focus {
-	background-color: #ffffff;
+	background: var(--white, #ffffff);
+	border-color: var(--gold-accent, #b76524);
+	box-shadow: 0 0 0 3px rgba(183, 101, 36, 0.15);
 }
 
 /* =========================================================
@@ -410,82 +240,46 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 	width: 100%;
-
-	height: 52px;
-
-	margin-top: 18px;
-	padding: 0 24px;
-
-	background: #b76524;
-
-	border: 1px solid #b76524;
-	border-radius: 999px;
-
-	color: #ffffff;
-
-	font-family: inherit;
-	font-size: 17px;
-	font-weight: 600;
-	line-height: 1;
-
+	height: 3.25rem;
+	margin-top: 1.25rem;
+	padding: 0 1.5rem;
+	background: var(--gold-accent, #b76524);
+	border: none;
+	border-radius: var(--radius-pill, 9999px);
+	color: var(--white, #ffffff);
+	font-size: 1rem;
+	font-weight: 700;
 	cursor: pointer;
-
-	transition:
-		background-color 0.2s ease,
-		border-color 0.2s ease,
-		transform 0.2s ease,
-		box-shadow 0.2s ease;
+	transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .consultation-form__submit:hover:not(:disabled) {
-	background: #a65b20;
-	border-color: #a65b20;
-
+	background: var(--gold-accent-hover, #a65b20);
 	transform: translateY(-1px);
-
-	box-shadow: 0 6px 16px rgba(183, 101, 36, 0.25);
-}
-
-.consultation-form__submit:active:not(:disabled) {
-	transform: translateY(0);
-
-	box-shadow: none;
-}
-
-.consultation-form__submit:focus-visible {
-	outline: 2px solid #b76524;
-	outline-offset: 3px;
+	box-shadow: 0 6px 18px rgba(183, 101, 36, 0.3);
 }
 
 .consultation-form__submit:disabled {
 	opacity: 0.7;
-
 	cursor: not-allowed;
 }
 
 /* =========================================================
-   SUBMIT LOADING STATE
+   SUBMIT LOADING SPINNER
    ========================================================= */
 
 .submit-loading {
 	display: inline-flex;
 	align-items: center;
-	justify-content: center;
-	gap: 5px;
+	gap: 0.375rem;
 }
 
 .submit-loading span {
-	display: block;
-
-	width: 5px;
-	height: 5px;
-
-	background: #ffffff;
-
+	width: 6px;
+	height: 6px;
+	background: var(--white, #ffffff);
 	border-radius: 50%;
-
 	animation: consultation-loading-dot 1.2s infinite ease-in-out;
 }
 
@@ -497,192 +291,13 @@
 	animation-delay: -0.12s;
 }
 
-.submit-loading span:nth-child(3) {
-	animation-delay: 0s;
-}
-
-/* =========================================================
-   SUCCESS / ERROR STATES
-   ========================================================= */
-
-.consultation-result {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	width: 100%;
-	min-height: 100%;
-
-	padding: 40px 20px;
-
-	text-align: center;
-}
-
-.consultation-result__icon {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	width: 82px;
-	height: 82px;
-
-	margin-bottom: 24px;
-
-	border-radius: 50%;
-}
-
-.consultation-result--success .consultation-result__icon {
-	background: #f1eee8;
-
-	color: #b76524;
-}
-
-.consultation-result--error .consultation-result__icon {
-	background: #f9e9e1;
-
-	color: #b76524;
-}
-
-.consultation-result h2 {
-	max-width: 420px;
-
-	margin: 0;
-
-	color: #000000;
-
-	font-size: 27px;
-	font-weight: 700;
-	line-height: 1.2;
-	letter-spacing: -0.025em;
-}
-
-.consultation-result p {
-	max-width: 420px;
-
-	margin: 14px auto 0;
-
-	color: #70777a;
-
-	font-size: 14px;
-	line-height: 1.6;
-}
-
-/* =========================================================
-   SUCCESS / ERROR BUTTON
-   ========================================================= */
-
-.consultation-result__button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	min-width: 140px;
-	height: 48px;
-
-	margin-top: 28px;
-	padding: 0 24px;
-
-	background: #b76524;
-
-	border: 1px solid #b76524;
-	border-radius: 999px;
-
-	color: #ffffff;
-
-	font-family: inherit;
-	font-size: 14px;
-	font-weight: 600;
-
-	cursor: pointer;
-
-	transition:
-		background-color 0.2s ease,
-		transform 0.2s ease,
-		box-shadow 0.2s ease;
-}
-
-.consultation-result__button:hover {
-	background: #a65b20;
-
-	transform: translateY(-1px);
-
-	box-shadow: 0 6px 16px rgba(183, 101, 36, 0.25);
-}
-
-.consultation-result__button:active {
-	transform: translateY(0);
-}
-
-.consultation-result__button:focus-visible,
-.consultation-result__secondary:focus-visible {
-	outline: 2px solid #b76524;
-	outline-offset: 3px;
-}
-
-/* =========================================================
-   ERROR ACTIONS
-   ========================================================= */
-
-.consultation-result__actions {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 12px;
-
-	margin-top: 28px;
-}
-
-.consultation-result__actions .consultation-result__button {
-	margin-top: 0;
-}
-
-.consultation-result__secondary {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	min-width: 110px;
-	height: 48px;
-
-	padding: 0 20px;
-
-	background: #f4f4f4;
-
-	border: 1px solid #dddddd;
-	border-radius: 999px;
-
-	color: #000000;
-
-	font-family: inherit;
-	font-size: 14px;
-	font-weight: 600;
-
-	cursor: pointer;
-
-	transition:
-		background-color 0.2s ease,
-		border-color 0.2s ease;
-}
-
-.consultation-result__secondary:hover {
-	background: #eaeaea;
-
-	border-color: #cfcfcf;
-}
-
-/* =========================================================
-   LOADING ANIMATION
-   ========================================================= */
-
 @keyframes consultation-loading-dot {
 	0%,
 	80%,
 	100% {
-		transform: scale(0.65);
+		transform: scale(0.6);
 		opacity: 0.5;
 	}
-
 	40% {
 		transform: scale(1);
 		opacity: 1;
@@ -690,208 +305,89 @@
 }
 
 /* =========================================================
-   TABLET
+   RESULTS (SUCCESS / ERROR)
    ========================================================= */
 
-@media (max-width: 900px) {
-	.consultation-modal {
-		padding: 20px;
-	}
-
-	.consultation-modal__dialog {
-		grid-template-columns: minmax(260px, 0.8fr) minmax(420px, 1.2fr);
-
-		padding: 28px;
-
-		border-radius: 30px;
-	}
-
-	.consultation-modal__info {
-		padding: 18px 24px 20px 0;
-	}
-
-	.consultation-modal__info h2 {
-		font-size: 34px;
-	}
-
-	.consultation-modal__intro {
-		font-size: 15px;
-	}
-
-	.consultation-modal__form-wrapper {
-		padding: 26px 24px 24px;
-
-		border-radius: 28px;
-	}
+.consultation-result {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 2rem 1rem;
+	text-align: center;
 }
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 700px) {
-	.consultation-modal {
-		align-items: flex-end;
-
-		padding: 0;
-	}
-
-	.consultation-modal__dialog {
-		display: flex;
-		flex-direction: column;
-
-		width: 100%;
-		max-height: 94vh;
-
-		padding: 20px;
-
-		border-radius: 26px 26px 0 0;
-
-		overflow-y: auto;
-	}
-
-	.consultation-modal__close {
-		top: 14px;
-		right: 14px;
-	}
-
-	.consultation-modal__info {
-		padding: 24px 4px 28px;
-	}
-
-	.consultation-modal__eyebrow {
-		margin-bottom: 18px;
-
-		font-size: 16px;
-	}
-
-	.consultation-modal__info h2 {
-		font-size: 30px;
-	}
-
-	.consultation-modal__intro {
-		margin-top: 20px;
-
-		font-size: 15px;
-	}
-
-	.consultation-modal__other-info {
-		margin-top: 28px;
-
-		padding-top: 0;
-	}
-
-	.consultation-modal__other-info h3 {
-		margin-bottom: 14px;
-	}
-
-	.consultation-modal__form-wrapper {
-		padding: 26px 20px 22px;
-
-		border-radius: 26px;
-	}
-
-	.consultation-form__grid {
-		grid-template-columns: 1fr;
-
-		gap: 18px;
-	}
-
-	.form-field--full {
-		grid-column: auto;
-	}
-
-	.consultation-form__submit {
-		margin-top: 20px;
-	}
+.consultation-result__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 4.5rem;
+	height: 4.5rem;
+	margin-bottom: 1.25rem;
+	border-radius: 50%;
 }
 
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 420px) {
-	.consultation-modal__dialog {
-		padding: 14px;
-
-		border-radius: 22px 22px 0 0;
-	}
-
-	.consultation-modal__info {
-		padding: 24px 4px 22px;
-	}
-
-	.consultation-modal__info h2 {
-		font-size: 27px;
-	}
-
-	.consultation-modal__intro {
-		font-size: 14px;
-	}
-
-	.consultation-modal__form-wrapper {
-		padding: 22px 16px 20px;
-
-		border-radius: 22px;
-	}
-
-	.form-field label {
-		font-size: 14px;
-	}
-
-	.form-field input,
-	.form-field select,
-	.form-field textarea {
-		font-size: 13px;
-	}
-
-	.consultation-form__submit {
-		height: 50px;
-
-		font-size: 16px;
-	}
-
-	.consultation-result {
-		padding: 30px 10px;
-	}
-
-	.consultation-result__icon {
-		width: 70px;
-		height: 70px;
-	}
-
-	.consultation-result h2 {
-		font-size: 23px;
-	}
-
-	.consultation-result__actions {
-		flex-direction: column;
-
-		width: 100%;
-	}
-
-	.consultation-result__actions button {
-		width: 100%;
-	}
+.consultation-result--success .consultation-result__icon {
+	background: #f1eee8;
+	color: var(--gold-accent, #b76524);
 }
 
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-	.consultation-modal__close,
-	.consultation-modal__other-info a,
-	.form-field input,
-	.form-field select,
-	.form-field textarea,
-	.consultation-form__submit,
-	.consultation-result__button,
-	.consultation-result__secondary {
-		transition: none;
-	}
-
-	.submit-loading span {
-		animation: none;
-	}
+.consultation-result--error .consultation-result__icon {
+	background: #f9e9e1;
+	color: #d93838;
 }
+
+.consultation-result h2 {
+	margin: 0 0 0.5rem;
+	font-size: 1.5rem;
+	font-weight: 800;
+	color: var(--text, #111111);
+}
+
+.consultation-result p {
+	max-width: 24rem;
+	margin: 0 auto;
+	font-size: 0.9375rem;
+	color: var(--muted, #6b6b6b);
+	line-height: 1.5;
+}
+
+.consultation-result__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 9rem;
+	height: 2.75rem;
+	margin-top: 1.5rem;
+	padding: 0 1.5rem;
+	background: var(--gold-accent, #b76524);
+	border: none;
+	border-radius: var(--radius-pill, 9999px);
+	color: var(--white, #ffffff);
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.consultation-result__actions {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-top: 1.5rem;
+}
+
+.consultation-result__secondary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 7rem;
+	height: 2.75rem;
+	padding: 0 1.25rem;
+	background: #e6e6e6;
+	border: none;
+	border-radius: var(--radius-pill, 9999px);
+	color: var(--text, #111111);
+	font-weight: 600;
+	cursor: pointer;
+}
+

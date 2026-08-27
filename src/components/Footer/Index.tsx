@@ -1,11 +1,9 @@
-import { motion } from 'motion/react';
-
 import './Index.css';
 import { Button } from '../Button/Index';
 
 const socialsIco = [
 	{
-		name: 'Mail',
+		name: 'Email Us',
 		ico: '/Socials/gmail.svg',
 		url: 'mailto:contactmoneclat@gmail.com',
 	},
@@ -15,37 +13,31 @@ const socialsIco = [
 		url: 'https://www.instagram.com/themoneclat?igsh=MWJvb2VienBhZzUxYw%3D%3D&utm_source=qr',
 	},
 	{
-		name: 'Whatsapp',
+		name: 'WhatsApp',
 		ico: '/Socials/whatsapp.svg',
 		url: 'https://wa.link/8g8au0',
 	},
 ];
 
 export function Footer() {
+	const handleSubscribe = (e: React.FormEvent) => {
+		e.preventDefault();
+	};
+
 	return (
 		<footer className='footer'>
 			<div className='container'>
 				<div className='footer__grid'>
 					<div className='footer__brand'>
-						<div className='footer__logo'>MON E'CLAT CONSULT</div>
+						<div className='footer__logo'>MON E&apos;CLAT CONSULT</div>
 
 						<p>Comprehensive Support for Your Overseas Journey.</p>
 
 						<h4>Subscribe to get the latest updates</h4>
 
-						<form className='footer__subscribe'>
-							<input type='email' placeholder='you@email.com' />
-							<Button
-								size='medium'
-								variant='light'
-								onClick={() => null}
-								style={{
-									borderRadius: '999px',
-									border: '2px solid #000',
-									backgroundColor: '#263a48',
-									color: '#fff',
-								}}
-							>
+						<form className='footer__subscribe' onSubmit={handleSubscribe}>
+							<input type='email' placeholder='you@email.com' aria-label='Your email address for newsletter' required />
+							<Button size='medium' variant='light' className='footer__subscribe-btn'>
 								Join
 							</Button>
 						</form>
@@ -63,13 +55,20 @@ export function Footer() {
 						<a href='#faqs'>FAQs</a>
 					</div>
 
-					<div className='footer__socials'>
-						{socialsIco.map((social) => (
-							<a href={social.url} key={social.name}>
-								<motion.img src={social.ico} alt={`${social.name} icon`} />
-							</a>
-						))}
+					<div className='footer__socials-section'>
+						<h4>Connect</h4>
+						<div className='footer__socials'>
+							{socialsIco.map((social) => (
+								<a href={social.url} key={social.name} target='_blank' rel='noopener noreferrer' aria-label={social.name}>
+									<img src={social.ico} alt='' aria-hidden='true' loading='lazy' decoding='async' width={24} height={24} />
+								</a>
+							))}
+						</div>
 					</div>
+				</div>
+
+				<div className='footer__bottom'>
+					<p>© {new Date().getFullYear()} MON E&apos;CLAT CONSULT. All rights reserved.</p>
 				</div>
 			</div>
 		</footer>

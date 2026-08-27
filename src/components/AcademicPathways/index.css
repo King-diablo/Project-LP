@@ -1,92 +1,50 @@
+/* =========================================================
+   ACADEMIC PATHWAYS SECTION
+   ========================================================= */
+
 .pathways {
 	width: 100%;
-	padding: 72px 0 80px;
-
-	background: #f5f5f5;
+	padding-block: clamp(3.5rem, 7vw, 6rem);
+	background: var(--gray-section, #f5f5f5);
 }
 
 .pathways__container {
-	width: calc(100% - 80px);
-	max-width: 1440px;
-
-	margin: 0 auto;
+	width: min(100% - clamp(1.5rem, 5vw, 4rem), var(--container, 1240px));
+	margin-inline: auto;
 }
 
-/* ========================================
+/* =========================================================
    SECTION HEADING
-======================================== */
+   ========================================================= */
 
 .pathways .section-heading {
-	margin-bottom: 50px;
+	margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .pathways .section-heading span {
 	display: block;
-
-	font-size: 35px;
-	font-weight: 900;
-	line-height: 1;
-	letter-spacing: 0.08em;
+	font-size: clamp(1.5rem, 3vw, 2.25rem);
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -0.02em;
 	text-transform: uppercase;
-
-	color: #111;
+	color: var(--text, #111111);
 }
 
-/* ========================================
-   PATHWAYS GRID
-======================================== */
+/* =========================================================
+   PATHWAYS GRID (Mobile-First)
+   ========================================================= */
 
 .pathways-grid {
 	display: grid;
-
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-
-	gap: 26px;
-
+	grid-template-columns: 1fr;
+	gap: clamp(1rem, 2.5vw, 1.75rem);
 	width: 100%;
 }
 
-/* ========================================
-   TABLET
-======================================== */
-
-@media (max-width: 900px) {
-	.pathways {
-		padding: 60px 0;
-	}
-
-	.pathways__container {
-		width: calc(100% - 48px);
-	}
-
+/* Tablet & Desktop Layout */
+@media (min-width: 768px) {
 	.pathways-grid {
-		gap: 14px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
-}
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 640px) {
-	.pathways {
-		padding: 48px 0 56px;
-	}
-
-	.pathways__container {
-		width: calc(100% - 28px);
-	}
-
-	.pathways .section-heading {
-		margin-bottom: 20px;
-	}
-
-	.pathways .section-heading span {
-		font-size: 11px;
-	}
-
-	.pathways-grid {
-		grid-template-columns: 1fr;
-		gap: 12px;
-	}
-}
+}
