@@ -4,7 +4,7 @@ import { Button } from '../Button/Index';
 const socialsIco = [
 	{
 		name: 'Email Us',
-		ico: '/Socials/gmail.svg',
+		ico: '/Socials/gmail_v2.svg',
 		url: 'mailto:contactmoneclat@gmail.com',
 	},
 	{

@@ -22,11 +22,11 @@
 .testimonials .section-heading span {
 	display: block;
 	margin-bottom: 0.5rem;
-	font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+	font-size: clamp(1.75rem, 1.2vw, 0.875rem);
 	font-weight: 800;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: var(--gold-accent, #b76524);
+	color: var(--muted, #b76524);
 }
 
 .testimonials .section-heading h2 {
@@ -151,4 +151,4 @@
 	.testimonial-slide {
 		scroll-snap-align: start;
 	}
-}
+}
