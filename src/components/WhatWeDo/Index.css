@@ -25,11 +25,11 @@
 .services .section-heading span {
 	display: block;
 	margin-bottom: 0.5rem;
-	font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+	font-size: clamp(1.75rem, 1.2vw, 0.875rem);
 	font-weight: 800;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: var(--gold-accent, #b76524);
+	color: var(--text, #b76524);
 }
 
 .services .section-heading h2 {
@@ -46,9 +46,9 @@
 	max-width: 38rem;
 	margin: 0;
 	font-size: clamp(0.95rem, 1.4vw, 1.125rem);
-	font-weight: 500;
+	font-weight: 700;
 	line-height: 1.6;
-	color: var(--muted, #555555);
+	color: var(--text, #555555);
 }
 
 /* =========================================================
@@ -81,4 +81,4 @@
 
 .services .stats {
 	margin-top: clamp(2.5rem, 5vw, 4rem);
-}
+}

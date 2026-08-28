@@ -37,9 +37,7 @@ export function WhatWeDo() {
 				>
 					<span>WHAT WE DO</span>
 
-					<h2>Seamless Support from Application to Arrival</h2>
-
-					<p>We simplify study abroad. From finding the right program to settling in your new country, we’re with you every step of the way.</p>
+					<p>Seamless Support from Application to Arrival We simplify study abroad. From finding the right program to settling in your new country, we’re with you every step of the way.</p>
 				</motion.div>
 
 				<motion.div
