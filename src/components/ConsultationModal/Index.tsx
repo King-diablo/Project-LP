@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { CheckCircle, Mail, Phone, X, AlertCircle } from 'lucide-react';
-
+import { destinations } from '../../data/siteInfo';
 import './Index.css';
 
 type ConsultationModalProps = {
@@ -160,9 +160,9 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 									<span>contactmoneclat@gmail.com</span>
 								</a>
 
-								<a href='tel:+2340000000000'>
+								<a href='tel:+44 742 469 4688'>
 									<Phone size={17} />
-									<span>+234 (0) 000 000 0000</span>
+									<span>+44 742 469 4688</span>
 								</a>
 							</div>
 						</div>
@@ -322,17 +322,9 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 														Select preferred destination
 													</option>
 
-													<option value='uk'>United Kingdom</option>
-
-													<option value='canada'>Canada</option>
-
-													<option value='usa'>United States</option>
-
-													<option value='australia'>Australia</option>
-
-													<option value='germany'>Germany</option>
-
-													<option value='other'>Other</option>
+													{destinations.map((dest) => {
+														return <option value={dest.name.toLocaleLowerCase()}>{dest.name}</option>;
+													})}
 												</select>
 											</div>
 

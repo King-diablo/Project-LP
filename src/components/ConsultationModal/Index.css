@@ -143,6 +143,7 @@
 	color: #333333;
 	text-decoration: none;
 	transition: color var(--transition-fast);
+	padding: 5px;
 }
 
 .consultation-modal__other-info a:hover {

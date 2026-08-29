@@ -1,5 +1,6 @@
 import './Index.css';
 import { Button } from '../Button/Index';
+import { supabase } from '../../utils/supabase';
 
 const socialsIco = [
 	{
@@ -20,8 +21,23 @@ const socialsIco = [
 ];
 
 export function Footer() {
-	const handleSubscribe = (e: React.FormEvent) => {
+	const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		const form = e.currentTarget;
+		const emailInput = form.elements.namedItem('email') as HTMLInputElement | null;
+		const email = emailInput?.value.trim();
+
+		if (!email) return;
+
+		await storeEmail(email);
+		form.reset();
+	};
+
+	const storeEmail = async (email: string) => {
+		const { error } = await supabase.from('newsletter_subscribers').insert({ email });
+		if (error) {
+			console.error(error);
+		}
 	};
 
 	return (
@@ -36,8 +52,8 @@ export function Footer() {
 						<h4>Subscribe to get the latest updates</h4>
 
 						<form className='footer__subscribe' onSubmit={handleSubscribe}>
-							<input type='email' placeholder='you@email.com' aria-label='Your email address for newsletter' required />
-							<Button size='medium' variant='light' className='footer__subscribe-btn'>
+							<input type='email' name='email' placeholder='you@email.com' aria-label='Your email address for newsletter' required />
+							<Button size='medium' variant='light' className='footer__subscribe-btn' href='' type='submit'>
 								Join
 							</Button>
 						</form>

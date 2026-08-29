@@ -83,12 +83,12 @@
 .footer__subscribe input {
 	min-width: 0;
 	flex: 1;
-	padding: 0.625rem 1rem;
-	border: 0;
-	outline: none;
+	padding: 0.825rem 1rem;
+	border-radius: var(--container, 9999px);
+	border: 1px;
 	background: transparent;
 	font-size: 0.875rem;
-	color: var(--text, #111111);
+	color: var(--text, #777777);
 }
 
 .footer__subscribe input::placeholder {

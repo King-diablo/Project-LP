@@ -3,12 +3,14 @@ import { Menu, Plane, X } from 'lucide-react';
 
 import { Button } from '../Button/Index';
 import { navLinks } from '../../data/siteInfo';
+import { useConsultation } from '../../context/ConsultationContext';
 
 import './Index.css';
 
 export function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const navRef = useRef<HTMLElement>(null);
+	const { openConsultation } = useConsultation();
 
 	const closeMenu = () => {
 		setIsMenuOpen(false);
@@ -65,14 +67,33 @@ export function Navbar() {
 			</nav>
 
 			<div className='navbar__action'>
-				<Button href='#contact'>BOOK A CONSULTATION</Button>
+				<Button
+					onClick={(e) => {
+						e.preventDefault();
+						openConsultation();
+					}}
+				>
+					BOOK A CONSULTATION
+				</Button>
 			</div>
 
-			<button type='button' className='navbar__menu' aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={isMenuOpen} aria-controls='mobile-navigation' onClick={toggleMenu}>
+			<button
+				type='button'
+				className='navbar__menu'
+				aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+				aria-expanded={isMenuOpen}
+				aria-controls='mobile-navigation'
+				onClick={toggleMenu}
+			>
 				{isMenuOpen ? <X size={24} aria-hidden='true' /> : <Menu size={24} aria-hidden='true' />}
 			</button>
 
-			<nav id='mobile-navigation' className={`navbar__mobile ${isMenuOpen ? 'navbar__mobile--open' : ''}`} aria-label='Mobile navigation' aria-hidden={!isMenuOpen}>
+			<nav
+				id='mobile-navigation'
+				className={`navbar__mobile ${isMenuOpen ? 'navbar__mobile--open' : ''}`}
+				aria-label='Mobile navigation'
+				aria-hidden={!isMenuOpen}
+			>
 				{navLinks.map((link) => (
 					<a key={link.href} href={link.href} onClick={closeMenu}>
 						{link.label}
@@ -80,7 +101,13 @@ export function Navbar() {
 				))}
 
 				<div className='navbar__mobile-action'>
-					<Button href='#contact' onClick={closeMenu}>
+					<Button
+						onClick={(e) => {
+							e.preventDefault();
+							closeMenu();
+							openConsultation();
+						}}
+					>
 						BOOK A CONSULTATION
 					</Button>
 				</div>

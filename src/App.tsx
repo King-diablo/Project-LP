@@ -10,31 +10,35 @@ import { Hero } from './components/Hero/Index';
 import { Testimonials } from './components/Testimonials/Index';
 import { WhatWeDo } from './components/WhatWeDo/Index';
 import { WhyUs } from './components/WhyUs/Index';
+import { ConsultationProvider } from './context/ConsultationContext';
 
 function App() {
 	return (
-		<div className='app'>
-			<main>
-				<Hero />
+		<ConsultationProvider>
+			<div className='app'>
+				<main>
+					<Hero />
 
-				<WhatWeDo />
+					<WhatWeDo />
 
-				<AcademicPathways />
+					<AcademicPathways />
 
-				<Destinations />
+					<Destinations />
 
-				<WhyUs />
+					<WhyUs />
 
-				<Testimonials />
+					<Testimonials />
 
-				<FAQ />
+					<FAQ />
 
-				<CTA />
-			</main>
+					<CTA />
+				</main>
 
-			<Footer />
-		</div>
+				<Footer />
+			</div>
+		</ConsultationProvider>
 	);
 }
 
 export default App;
+
