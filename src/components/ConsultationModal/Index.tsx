@@ -65,7 +65,9 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 		};
 
 		try {
-			const response = await fetch('/api/consultation', {
+			if (typeof data.email !== 'string') return;
+
+			const response = await fetch('/api/contact', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -73,11 +75,15 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 				body: JSON.stringify(data),
 			});
 
-			if (!response.ok) {
+			const result = await response.json();
+
+			if (!result.success) {
 				throw new Error('Unable to submit your consultation request.');
 			}
 
 			setStatus('success');
+			console.log(result);
+
 			form.reset();
 		} catch (error) {
 			console.error('Consultation submission failed:', error);
@@ -323,7 +329,11 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 													</option>
 
 													{destinations.map((dest) => {
-														return <option value={dest.name.toLocaleLowerCase()}>{dest.name}</option>;
+														return (
+															<option key={dest.name} value={dest.name.toLocaleLowerCase()}>
+																{dest.name}
+															</option>
+														);
 													})}
 												</select>
 											</div>

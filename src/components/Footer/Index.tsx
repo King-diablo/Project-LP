@@ -1,6 +1,5 @@
 import './Index.css';
 import { Button } from '../Button/Index';
-import { supabase } from '../../utils/supabase';
 
 const socialsIco = [
 	{
@@ -29,14 +28,24 @@ export function Footer() {
 
 		if (!email) return;
 
-		await storeEmail(email);
-		form.reset();
-	};
+		try {
+			const response = await fetch('/api/subscribe', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ email }),
+			});
 
-	const storeEmail = async (email: string) => {
-		const { error } = await supabase.from('newsletter_subscribers').insert({ email });
-		if (error) {
-			console.error(error);
+			const result = await response.json();
+
+			if (!response.ok || !result.success) {
+				throw new Error(result.error || 'Unable to subscribe. Please try again.');
+			}
+		} catch (error) {
+			console.error('Subscribe error:', error);
+		} finally {
+			form.reset();
 		}
 	};
 
