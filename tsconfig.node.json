@@ -22,5 +22,8 @@
   "include": [
     "vite.config.ts",
     "api/**/*.ts"
-  ]
+,
+"utils/clientInquiry.ts",
+"utils/confirmation.ts"
+]
 }

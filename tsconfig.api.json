@@ -8,7 +8,8 @@
         "skipLibCheck": true,
         "types": [
             "node"
-        ]
+        ],
+        "composite": true
     },
     "include": [
         "api/**/*.ts"
