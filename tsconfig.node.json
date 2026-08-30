@@ -23,7 +23,7 @@
     "vite.config.ts",
     "api/**/*.ts"
 ,
-"utils/clientInquiry.ts",
-"utils/confirmation.ts"
+"api/clientInquiry.ts",
+"api/confirmation.ts"
 ]
 }
