@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
-import { confirmationEmail } from './confirmation.ts';
-import { clientInquiryEmail } from './clientInquiry.ts';
+import { confirmationEmail } from './confirmation.js';
+import { clientInquiryEmail } from './clientInquiry.js';
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
