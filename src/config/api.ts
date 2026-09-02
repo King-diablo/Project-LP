@@ -1,5 +1,3 @@
-const platform = import.meta.env.VITE_DEPLOYMENT_PLATFORM;
-
 export const API = {
 	contact: '/.netlify/functions/contact',
 
