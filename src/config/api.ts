@@ -1,9 +1,9 @@
 const platform = import.meta.env.VITE_DEPLOYMENT_PLATFORM;
 
 export const API = {
-	contact: platform === 'netlify' ? '/.netlify/functions/contact' : '/api/contact',
+	contact: '/.netlify/functions/contact',
 
-	subscribe: platform === 'netlify' ? '/.netlify/functions/subscribe' : '/api/subscribe',
+	subscribe: '/.netlify/functions/subscribe',
 };
 
 export const postData = async (url: string, body: object) =>
