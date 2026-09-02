@@ -38,7 +38,7 @@ export function Footer() {
 			// 	body: JSON.stringify({ email }),
 			// });
 
-			const response = await postData(API.contact, { email });
+			const response = await postData(API.subscribe, { email });
 
 			const result = await response.json();
 
