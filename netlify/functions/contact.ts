@@ -138,7 +138,7 @@ export const handler: Handler = async (event) => {
 
 		const inquiryPromise = resend.emails.send({
 			from: 'Moneclat <noreply@mail.moneclatconsult.com>',
-			to: [email],
+			to: ['contactmoneclat@gmail.com'],
 			subject: 'Inquiry Mail',
 			html: clientInquiryEmail({
 				fullName,
@@ -153,25 +153,24 @@ export const handler: Handler = async (event) => {
 
 		const response = await Promise.allSettled([confirmationPromise, inquiryPromise]);
 
-		const rejected = response.filter((result) => result.status === 'rejected');
-
-		if (rejected.length > 0) {
-			for (const item of rejected) {
-				if (item.status === 'rejected') {
-					console.error(item.reason);
-				}
+		const failed = response.filter((result) => {
+			if (result.status === 'rejected') {
+				return true;
 			}
 
-			return {
-				statusCode: 500,
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					success: false,
-					error: 'Failed to send email',
-				}),
-			};
+			return result.value.error !== null;
+		});
+
+		if (failed.length > 0) {
+			for (const result of failed) {
+				if (result.status === 'rejected') {
+					console.error('Promise rejected:', result.reason);
+				} else {
+					console.error('Mail error');
+					// console.error('Resend API error:', result.value.error);
+				}
+			}
+			return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ success: false, error: 'Failed to send email' }) };
 		}
 
 		return {
