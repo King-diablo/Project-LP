@@ -130,14 +130,14 @@ export const handler: Handler = async (event) => {
 		const message = normalizeText(body.message) || 'No message provided';
 
 		const confirmationPromise = resend.emails.send({
-			from: 'Moneclat <mail.moneclatconsult.com',
+			from: 'Moneclat <noreply@mail.moneclatconsult.com>',
 			to: [email],
 			subject: 'Confirmation Mail',
 			html: confirmationEmail({ fullName }),
 		});
 
 		const inquiryPromise = resend.emails.send({
-			from: 'Moneclat <mail.moneclatconsult.com>',
+			from: 'Moneclat <noreply@mail.moneclatconsult.com>',
 			to: [email],
 			subject: 'Inquiry Mail',
 			html: clientInquiryEmail({
