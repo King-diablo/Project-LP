@@ -21,9 +21,8 @@
   },
   "include": [
     "vite.config.ts",
-    "api/**/*.ts"
-,
-"api/clientInquiry.ts",
-"api/confirmation.ts"
+    "api/**/*.ts",
+    "template/**/*.ts",
+    "netlify/**/*.ts"
 ]
 }

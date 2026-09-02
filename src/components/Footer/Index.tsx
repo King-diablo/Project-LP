@@ -1,5 +1,6 @@
 import './Index.css';
 import { Button } from '../Button/Index';
+import { API, postData } from '../../config/api';
 
 const socialsIco = [
 	{
@@ -29,13 +30,15 @@ export function Footer() {
 		if (!email) return;
 
 		try {
-			const response = await fetch('/api/subscribe', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ email }),
-			});
+			// const response = await fetch(API.subscribe, {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		'Content-Type': 'application/json',
+			// 	},
+			// 	body: JSON.stringify({ email }),
+			// });
+
+			const response = await postData(API.contact, { email });
 
 			const result = await response.json();
 

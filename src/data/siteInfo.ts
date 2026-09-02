@@ -203,34 +203,43 @@ export const testimonials = [
 export const faqs = [
 	{
 		question: "What is Mon E'clat Consult?",
-		answer: "Mon E'clat Consult is an international education consultancy that helps students identify suitable study opportunities abroad and supports them throughout the admissions and relocation process.",
+		answer:
+			"Mon E'clat Consult is an international education consultancy that helps students identify suitable study opportunities abroad and supports them throughout the admissions and relocation process.",
 	},
 	{
 		question: "Which countries can I study in through Mon E'clat Consult?",
-		answer: 'We currently support opportunities across Canada, the United Kingdom, Turkey, Romania, Ukraine, Belarus, Cyprus, and Serbia.',
+		answer:
+			"We have experience supporting students with study opportunities in countries including Türkiye, the United Kingdom, Canada, Romania, Serbia, Cyprus, Ukraine, and Belarus, subject to current programme and admission availability.",
 	},
 	{
-		question: 'What does the application process involve?',
-		answer: 'We help with program selection, applications, admissions documentation, visa preparation, and relocation planning.',
+		question: "What does the application process involve?",
+		answer:
+			"The process generally includes an initial consultation, academic assessment, programme selection, document preparation, application submission, admission processing, and guidance through the subsequent stages.",
 	},
 	{
 		question: "Can you help if I don't know which programme to study?",
-		answer: 'Yes. We can help identify programs based on your academic background, career goals, preferred destination, and budget.',
+		answer:
+			"Yes. Our consultation process can help you explore programmes that align with your academic background, interests, strengths, and long-term career objectives.",
 	},
 	{
-		question: 'Do you assist with visa applications?',
-		answer: 'Yes. We provide visa consultation and documentation preparation for eligible student, work, and tourist visa applications.',
+		question: "Do you assist with visa applications?",
+		answer:
+			"Yes. Where applicable, we provide guidance on the documentation and procedures required for the student visa process.",
 	},
 	{
-		question: 'Will someone assist me after I arrive in the country?',
-		answer: 'Yes. Our relocation support can include arrival arrangements and settlement assistance.',
+		question: "Will someone assist me after I arrive in the country?",
+		answer:
+			"Our support can extend beyond admission and travel, helping students navigate their initial transition and understand the practical steps required after arrival.",
 	},
 	{
 		question: "Can organizations or governments work with Mon E'clat Consult?",
-		answer: 'Yes. Organizations and government bodies can contact us to discuss relevant partnership opportunities.',
+		answer:
+			"Yes. We can develop structured international education and scholarship programmes for organizations, institutions, and government stakeholders.",
 	},
 	{
-		question: 'How do I start my application?',
-		answer: 'Start by scheduling a consultation with our team so we can understand your goals and recommend the appropriate pathway.',
+		question: "How do I start my application?",
+		answer:
+			"Contact Mon E'clat Consult for an initial consultation. We will discuss your academic background, preferred destination, programme interests, and goals before recommending the next steps.",
 	},
 ];
+;

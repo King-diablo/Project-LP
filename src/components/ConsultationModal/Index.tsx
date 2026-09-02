@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { CheckCircle, Mail, Phone, X, AlertCircle } from 'lucide-react';
 import { destinations } from '../../data/siteInfo';
 import './Index.css';
+import { API, postData } from '../../config/api';
 
 type ConsultationModalProps = {
 	isOpen: boolean;
@@ -67,13 +68,15 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 		try {
 			if (typeof data.email !== 'string') return;
 
-			const response = await fetch('/api/contact', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(data),
-			});
+			// const response = await fetch(API.contact, {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		'Content-Type': 'application/json',
+			// 	},
+			// 	body: JSON.stringify(data),
+			// });
+
+			const response = await postData(API.contact, data);
 
 			const result = await response.json();
 

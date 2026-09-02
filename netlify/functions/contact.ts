@@ -1,9 +1,12 @@
+import type { Handler } from '@netlify/functions';
+import { confirmationEmail } from '../../template/confirmation.js';
+import { clientInquiryEmail } from '../../template/clientInquiry.js';
 import { Resend } from 'resend';
-import { confirmationEmail } from '../template/confirmation.js';
-import { clientInquiryEmail } from '../template/clientInquiry.js';
 
 const resendApiKey = process.env.RESEND_API_KEY;
+
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 
@@ -15,12 +18,14 @@ const resend = new Resend(resendApiKey);
 
 const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
-const getClientIp = (req: any) => {
-	const forwardedFor = req.headers['x-forwarded-for'];
+const getClientIp = (event: any) => {
+	const forwardedFor = event.headers['x-forwarded-for'];
+
 	if (typeof forwardedFor === 'string') {
 		return forwardedFor.split(',')[0].trim();
 	}
-	return req.socket?.remoteAddress ?? 'unknown';
+
+	return 'unknown';
 };
 
 const checkRateLimit = (ip: string) => {
@@ -28,7 +33,11 @@ const checkRateLimit = (ip: string) => {
 	const current = rateLimitMap.get(ip);
 
 	if (!current || current.resetAt <= now) {
-		const next = { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS };
+		const next = {
+			count: 1,
+			resetAt: now + RATE_LIMIT_WINDOW_MS,
+		};
+
 		rateLimitMap.set(ip, next);
 		return true;
 	}
@@ -38,53 +47,86 @@ const checkRateLimit = (ip: string) => {
 	}
 
 	current.count += 1;
+
 	return true;
 };
 
 const normalizeText = (value: unknown) => {
 	if (typeof value !== 'string') return '';
+
 	return value.trim();
 };
 
-export default async function handler(req: any, res: any) {
-	if (req.method !== 'POST') {
-		return res.status(405).json({
-			success: false,
-			error: 'Method not allowed',
-		});
+export const handler: Handler = async (event) => {
+	if (event.httpMethod !== 'POST') {
+		return {
+			statusCode: 405,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				success: false,
+				error: 'Method not allowed',
+			}),
+		};
 	}
 
-	if (!req.headers['content-type']?.includes('application/json')) {
-		return res.status(415).json({
-			success: false,
-			error: 'Content-Type must be application/json',
-		});
+	if (!event.headers['content-type']?.includes('application/json')) {
+		return {
+			statusCode: 415,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				success: false,
+				error: 'Content-Type must be application/json',
+			}),
+		};
 	}
 
-	const ip = getClientIp(req);
+	const ip = getClientIp(event);
+
 	if (!checkRateLimit(ip)) {
-		return res.status(429).json({
-			success: false,
-			error: 'Too many requests. Please try again later.',
-		});
+		return {
+			statusCode: 429,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				success: false,
+				error: 'Too many requests. Please try again later.',
+			}),
+		};
 	}
 
 	try {
-		const body = typeof req.body === 'object' && req.body ? req.body : {};
+		const body = event.body ? JSON.parse(event.body) : {};
+
 		const email = normalizeText(body.email);
 
 		if (!email || !isValidEmail(email)) {
-			return res.status(400).json({
-				success: false,
-				error: 'A valid email is required',
-			});
+			return {
+				statusCode: 400,
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					success: false,
+					error: 'A valid email is required',
+				}),
+			};
 		}
 
 		const fullName = normalizeText(body.fullName) || 'there';
+
 		const phone = normalizeText(body.phone) || 'Not provided';
+
 		const studyLevel = normalizeText(body.studyLevel) || 'Not provided';
+
 		const destination = normalizeText(body.destination) || 'Not provided';
+
 		const budget = normalizeText(body.budget) || 'Not provided';
+
 		const message = normalizeText(body.message) || 'No message provided';
 
 		const confirmationPromise = resend.emails.send({
@@ -110,6 +152,7 @@ export default async function handler(req: any, res: any) {
 		});
 
 		const response = await Promise.allSettled([confirmationPromise, inquiryPromise]);
+
 		const rejected = response.filter((result) => result.status === 'rejected');
 
 		if (rejected.length > 0) {
@@ -119,23 +162,41 @@ export default async function handler(req: any, res: any) {
 				}
 			}
 
-			return res.status(500).json({
-				success: false,
-				error: 'Failed to send email',
-			});
+			return {
+				statusCode: 500,
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					success: false,
+					error: 'Failed to send email',
+				}),
+			};
 		}
 
-		return res.status(200).json({
-			success: true,
-			msg: 'all mails sent',
-			id: response.map((result) => (result.status === 'fulfilled' ? result.value : null)).filter(Boolean),
-		});
+		return {
+			statusCode: 200,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				success: true,
+				msg: 'All mails sent',
+				id: response.map((result) => (result.status === 'fulfilled' ? result.value : null)).filter(Boolean),
+			}),
+		};
 	} catch (error) {
 		console.error(error);
 
-		return res.status(500).json({
-			success: false,
-			error: 'Internal server error',
-		});
+		return {
+			statusCode: 500,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				success: false,
+				error: 'Internal server error',
+			}),
+		};
 	}
-}
+};
